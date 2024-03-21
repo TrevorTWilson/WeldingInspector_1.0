@@ -7,13 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5BCAB4702BAC6D66002A5B0B /* WeldingInspectorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB46F2BAC6D66002A5B0B /* WeldingInspectorApp.swift */; };
-		5BCAB4722BAC6D66002A5B0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4712BAC6D66002A5B0B /* ContentView.swift */; };
 		5BCAB4742BAC6D68002A5B0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAB4732BAC6D68002A5B0B /* Assets.xcassets */; };
 		5BCAB4772BAC6D68002A5B0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAB4762BAC6D68002A5B0B /* Preview Assets.xcassets */; };
 		5BCAB4812BAC6D68002A5B0B /* WeldingInspectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4802BAC6D68002A5B0B /* WeldingInspectorTests.swift */; };
 		5BCAB48B2BAC6D68002A5B0B /* WeldingInspectorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB48A2BAC6D68002A5B0B /* WeldingInspectorUITests.swift */; };
 		5BCAB48D2BAC6D68002A5B0B /* WeldingInspectorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB48C2BAC6D68002A5B0B /* WeldingInspectorUITestsLaunchTests.swift */; };
+		5BCAB49A2BAC6DAD002A5B0B /* AppEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4992BAC6DAD002A5B0B /* AppEntryPoint.swift */; };
+		5BCAB4A22BAC6E59002A5B0B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAB4A12BAC6E59002A5B0B /* Launch Screen.storyboard */; };
+		5BCAB4AC2BAC6EE9002A5B0B /* Seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAB4AB2BAC6EE8002A5B0B /* Seed.json */; };
+		5BCAB4F42BAC73FB002A5B0B /* CalculateArcSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4C62BAC73FB002A5B0B /* CalculateArcSpeed.swift */; };
+		5BCAB4F52BAC73FB002A5B0B /* TemporaryValueBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4C72BAC73FB002A5B0B /* TemporaryValueBuilder.swift */; };
+		5BCAB4F62BAC73FB002A5B0B /* SetTempValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4C82BAC73FB002A5B0B /* SetTempValues.swift */; };
+		5BCAB4F72BAC73FB002A5B0B /* CalculateHeatInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4C92BAC73FB002A5B0B /* CalculateHeatInput.swift */; };
+		5BCAB4F82BAC73FB002A5B0B /* HandleKeyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4CA2BAC73FB002A5B0B /* HandleKeyAction.swift */; };
+		5BCAB4F92BAC73FB002A5B0B /* PassParameterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4CC2BAC73FB002A5B0B /* PassParameterView.swift */; };
+		5BCAB4FA2BAC73FB002A5B0B /* MainJobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4CD2BAC73FB002A5B0B /* MainJobView.swift */; };
+		5BCAB4FB2BAC73FB002A5B0B /* WelderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4CE2BAC73FB002A5B0B /* WelderView.swift */; };
+		5BCAB4FC2BAC73FB002A5B0B /* WeldPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4CF2BAC73FB002A5B0B /* WeldPassView.swift */; };
+		5BCAB4FD2BAC73FB002A5B0B /* ProcedureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4D02BAC73FB002A5B0B /* ProcedureView.swift */; };
+		5BCAB4FE2BAC73FB002A5B0B /* WeldNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4D12BAC73FB002A5B0B /* WeldNumberView.swift */; };
+		5BCAB4FF2BAC73FB002A5B0B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4D32BAC73FB002A5B0B /* ProfileView.swift */; };
+		5BCAB5002BAC73FB002A5B0B /* DeleteSelections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4D52BAC73FB002A5B0B /* DeleteSelections.swift */; };
+		5BCAB5012BAC73FB002A5B0B /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4D62BAC73FB002A5B0B /* DataStorage.swift */; };
+		5BCAB5022BAC73FB002A5B0B /* UpdateItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4D72BAC73FB002A5B0B /* UpdateItems.swift */; };
+		5BCAB5032BAC73FB002A5B0B /* ConversionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4D82BAC73FB002A5B0B /* ConversionFunctions.swift */; };
+		5BCAB5042BAC73FB002A5B0B /* SetSelections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4D92BAC73FB002A5B0B /* SetSelections.swift */; };
+		5BCAB5052BAC73FB002A5B0B /* FunctionsToGroupItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4DA2BAC73FB002A5B0B /* FunctionsToGroupItems.swift */; };
+		5BCAB5062BAC73FB002A5B0B /* AddItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4DB2BAC73FB002A5B0B /* AddItems.swift */; };
+		5BCAB5072BAC73FB002A5B0B /* DidSetItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4DC2BAC73FB002A5B0B /* DidSetItems.swift */; };
+		5BCAB5082BAC73FB002A5B0B /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4DD2BAC73FB002A5B0B /* MainViewModel.swift */; };
+		5BCAB5092BAC73FB002A5B0B /* AddProcedurePass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4DF2BAC73FB002A5B0B /* AddProcedurePass.swift */; };
+		5BCAB50A2BAC73FB002A5B0B /* AddProcedureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4E02BAC73FB002A5B0B /* AddProcedureView.swift */; };
+		5BCAB50B2BAC73FB002A5B0B /* AddParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4E12BAC73FB002A5B0B /* AddParametersView.swift */; };
+		5BCAB50C2BAC73FB002A5B0B /* AddWelderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4E22BAC73FB002A5B0B /* AddWelderView.swift */; };
+		5BCAB50D2BAC73FB002A5B0B /* WeldingProcedureFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4E32BAC73FB002A5B0B /* WeldingProcedureFormView.swift */; };
+		5BCAB50E2BAC73FB002A5B0B /* AddJobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4E42BAC73FB002A5B0B /* AddJobView.swift */; };
+		5BCAB50F2BAC73FB002A5B0B /* AddWeldNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4E52BAC73FB002A5B0B /* AddWeldNumberView.swift */; };
+		5BCAB5102BAC73FB002A5B0B /* CollectParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4E62BAC73FB002A5B0B /* CollectParametersView.swift */; };
+		5BCAB5112BAC73FB002A5B0B /* Load_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4E82BAC73FB002A5B0B /* Load_Data.swift */; };
+		5BCAB5122BAC73FB002A5B0B /* WeldingInspectorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4E92BAC73FB002A5B0B /* WeldingInspectorModel.swift */; };
+		5BCAB5132BAC73FB002A5B0B /* StorageFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4EB2BAC73FB002A5B0B /* StorageFunctions.swift */; };
+		5BCAB5142BAC73FC002A5B0B /* CustomSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4ED2BAC73FB002A5B0B /* CustomSectionHeader.swift */; };
+		5BCAB5152BAC73FC002A5B0B /* circleSlider VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4EE2BAC73FB002A5B0B /* circleSlider VC.swift */; };
+		5BCAB5162BAC73FC002A5B0B /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4EF2BAC73FB002A5B0B /* RangeSlider.swift */; };
+		5BCAB5172BAC73FC002A5B0B /* KeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4F02BAC73FB002A5B0B /* KeyValueView.swift */; };
+		5BCAB5182BAC73FC002A5B0B /* MultiSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4F12BAC73FB002A5B0B /* MultiSelectView.swift */; };
+		5BCAB5192BAC73FC002A5B0B /* KeyValueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4F22BAC73FB002A5B0B /* KeyValueRow.swift */; };
+		5BCAB51A2BAC73FC002A5B0B /* RoundStopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4F32BAC73FB002A5B0B /* RoundStopwatchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +75,6 @@
 
 /* Begin PBXFileReference section */
 		5BCAB46C2BAC6D66002A5B0B /* WeldingInspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeldingInspector.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BCAB46F2BAC6D66002A5B0B /* WeldingInspectorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeldingInspectorApp.swift; sourceTree = "<group>"; };
-		5BCAB4712BAC6D66002A5B0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5BCAB4732BAC6D68002A5B0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BCAB4762BAC6D68002A5B0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5BCAB47C2BAC6D68002A5B0B /* WeldingInspectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeldingInspectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +82,49 @@
 		5BCAB4862BAC6D68002A5B0B /* WeldingInspectorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeldingInspectorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BCAB48A2BAC6D68002A5B0B /* WeldingInspectorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeldingInspectorUITests.swift; sourceTree = "<group>"; };
 		5BCAB48C2BAC6D68002A5B0B /* WeldingInspectorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeldingInspectorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5BCAB4992BAC6DAD002A5B0B /* AppEntryPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEntryPoint.swift; sourceTree = "<group>"; };
+		5BCAB4A12BAC6E59002A5B0B /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		5BCAB4AB2BAC6EE8002A5B0B /* Seed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Seed.json; sourceTree = "<group>"; };
+		5BCAB4C62BAC73FB002A5B0B /* CalculateArcSpeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateArcSpeed.swift; sourceTree = "<group>"; };
+		5BCAB4C72BAC73FB002A5B0B /* TemporaryValueBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporaryValueBuilder.swift; sourceTree = "<group>"; };
+		5BCAB4C82BAC73FB002A5B0B /* SetTempValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTempValues.swift; sourceTree = "<group>"; };
+		5BCAB4C92BAC73FB002A5B0B /* CalculateHeatInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateHeatInput.swift; sourceTree = "<group>"; };
+		5BCAB4CA2BAC73FB002A5B0B /* HandleKeyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandleKeyAction.swift; sourceTree = "<group>"; };
+		5BCAB4CC2BAC73FB002A5B0B /* PassParameterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassParameterView.swift; sourceTree = "<group>"; };
+		5BCAB4CD2BAC73FB002A5B0B /* MainJobView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainJobView.swift; sourceTree = "<group>"; };
+		5BCAB4CE2BAC73FB002A5B0B /* WelderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelderView.swift; sourceTree = "<group>"; };
+		5BCAB4CF2BAC73FB002A5B0B /* WeldPassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeldPassView.swift; sourceTree = "<group>"; };
+		5BCAB4D02BAC73FB002A5B0B /* ProcedureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcedureView.swift; sourceTree = "<group>"; };
+		5BCAB4D12BAC73FB002A5B0B /* WeldNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeldNumberView.swift; sourceTree = "<group>"; };
+		5BCAB4D32BAC73FB002A5B0B /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		5BCAB4D52BAC73FB002A5B0B /* DeleteSelections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteSelections.swift; sourceTree = "<group>"; };
+		5BCAB4D62BAC73FB002A5B0B /* DataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		5BCAB4D72BAC73FB002A5B0B /* UpdateItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateItems.swift; sourceTree = "<group>"; };
+		5BCAB4D82BAC73FB002A5B0B /* ConversionFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionFunctions.swift; sourceTree = "<group>"; };
+		5BCAB4D92BAC73FB002A5B0B /* SetSelections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetSelections.swift; sourceTree = "<group>"; };
+		5BCAB4DA2BAC73FB002A5B0B /* FunctionsToGroupItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsToGroupItems.swift; sourceTree = "<group>"; };
+		5BCAB4DB2BAC73FB002A5B0B /* AddItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItems.swift; sourceTree = "<group>"; };
+		5BCAB4DC2BAC73FB002A5B0B /* DidSetItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DidSetItems.swift; sourceTree = "<group>"; };
+		5BCAB4DD2BAC73FB002A5B0B /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		5BCAB4DF2BAC73FB002A5B0B /* AddProcedurePass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProcedurePass.swift; sourceTree = "<group>"; };
+		5BCAB4E02BAC73FB002A5B0B /* AddProcedureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProcedureView.swift; sourceTree = "<group>"; };
+		5BCAB4E12BAC73FB002A5B0B /* AddParametersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddParametersView.swift; sourceTree = "<group>"; };
+		5BCAB4E22BAC73FB002A5B0B /* AddWelderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWelderView.swift; sourceTree = "<group>"; };
+		5BCAB4E32BAC73FB002A5B0B /* WeldingProcedureFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeldingProcedureFormView.swift; sourceTree = "<group>"; };
+		5BCAB4E42BAC73FB002A5B0B /* AddJobView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddJobView.swift; sourceTree = "<group>"; };
+		5BCAB4E52BAC73FB002A5B0B /* AddWeldNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWeldNumberView.swift; sourceTree = "<group>"; };
+		5BCAB4E62BAC73FB002A5B0B /* CollectParametersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectParametersView.swift; sourceTree = "<group>"; };
+		5BCAB4E82BAC73FB002A5B0B /* Load_Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Load_Data.swift; sourceTree = "<group>"; };
+		5BCAB4E92BAC73FB002A5B0B /* WeldingInspectorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeldingInspectorModel.swift; sourceTree = "<group>"; };
+		5BCAB4EB2BAC73FB002A5B0B /* StorageFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageFunctions.swift; sourceTree = "<group>"; };
+		5BCAB4ED2BAC73FB002A5B0B /* CustomSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSectionHeader.swift; sourceTree = "<group>"; };
+		5BCAB4EE2BAC73FB002A5B0B /* circleSlider VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "circleSlider VC.swift"; sourceTree = "<group>"; };
+		5BCAB4EF2BAC73FB002A5B0B /* RangeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
+		5BCAB4F02BAC73FB002A5B0B /* KeyValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueView.swift; sourceTree = "<group>"; };
+		5BCAB4F12BAC73FB002A5B0B /* MultiSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectView.swift; sourceTree = "<group>"; };
+		5BCAB4F22BAC73FB002A5B0B /* KeyValueRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueRow.swift; sourceTree = "<group>"; };
+		5BCAB4F32BAC73FB002A5B0B /* RoundStopwatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundStopwatchView.swift; sourceTree = "<group>"; };
+		5BCAB51B2BAC75BC002A5B0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +175,17 @@
 		5BCAB46E2BAC6D66002A5B0B /* WeldingInspector */ = {
 			isa = PBXGroup;
 			children = (
-				5BCAB46F2BAC6D66002A5B0B /* WeldingInspectorApp.swift */,
-				5BCAB4712BAC6D66002A5B0B /* ContentView.swift */,
+				5BCAB51B2BAC75BC002A5B0B /* Info.plist */,
+				5BCAB4A12BAC6E59002A5B0B /* Launch Screen.storyboard */,
+				5BCAB4992BAC6DAD002A5B0B /* AppEntryPoint.swift */,
+				5BCAB4AB2BAC6EE8002A5B0B /* Seed.json */,
+				5BCAB4CB2BAC73FB002A5B0B /* NavigationViews */,
+				5BCAB4DE2BAC73FB002A5B0B /* Edit_Add_Views */,
+				5BCAB4EC2BAC73FB002A5B0B /* HelperViews */,
+				5BCAB4C52BAC73FB002A5B0B /* HelperFunctions */,
+				5BCAB4D22BAC73FB002A5B0B /* ViewModels */,
+				5BCAB4E72BAC73FB002A5B0B /* WeldingDataModels */,
+				5BCAB4EA2BAC73FB002A5B0B /* WeldingDataStorage */,
 				5BCAB4732BAC6D68002A5B0B /* Assets.xcassets */,
 				5BCAB4752BAC6D68002A5B0B /* Preview Content */,
 			);
@@ -125,6 +215,102 @@
 				5BCAB48C2BAC6D68002A5B0B /* WeldingInspectorUITestsLaunchTests.swift */,
 			);
 			path = WeldingInspectorUITests;
+			sourceTree = "<group>";
+		};
+		5BCAB4C52BAC73FB002A5B0B /* HelperFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				5BCAB4C62BAC73FB002A5B0B /* CalculateArcSpeed.swift */,
+				5BCAB4C72BAC73FB002A5B0B /* TemporaryValueBuilder.swift */,
+				5BCAB4C82BAC73FB002A5B0B /* SetTempValues.swift */,
+				5BCAB4C92BAC73FB002A5B0B /* CalculateHeatInput.swift */,
+				5BCAB4CA2BAC73FB002A5B0B /* HandleKeyAction.swift */,
+			);
+			path = HelperFunctions;
+			sourceTree = "<group>";
+		};
+		5BCAB4CB2BAC73FB002A5B0B /* NavigationViews */ = {
+			isa = PBXGroup;
+			children = (
+				5BCAB4CD2BAC73FB002A5B0B /* MainJobView.swift */,
+				5BCAB4D02BAC73FB002A5B0B /* ProcedureView.swift */,
+				5BCAB4CC2BAC73FB002A5B0B /* PassParameterView.swift */,
+				5BCAB4CE2BAC73FB002A5B0B /* WelderView.swift */,
+				5BCAB4D12BAC73FB002A5B0B /* WeldNumberView.swift */,
+				5BCAB4CF2BAC73FB002A5B0B /* WeldPassView.swift */,
+			);
+			path = NavigationViews;
+			sourceTree = "<group>";
+		};
+		5BCAB4D22BAC73FB002A5B0B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5BCAB4DD2BAC73FB002A5B0B /* MainViewModel.swift */,
+				5BCAB4D32BAC73FB002A5B0B /* ProfileView.swift */,
+				5BCAB4D42BAC73FB002A5B0B /* ViewModelExtentions */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5BCAB4D42BAC73FB002A5B0B /* ViewModelExtentions */ = {
+			isa = PBXGroup;
+			children = (
+				5BCAB4D52BAC73FB002A5B0B /* DeleteSelections.swift */,
+				5BCAB4D62BAC73FB002A5B0B /* DataStorage.swift */,
+				5BCAB4D72BAC73FB002A5B0B /* UpdateItems.swift */,
+				5BCAB4D82BAC73FB002A5B0B /* ConversionFunctions.swift */,
+				5BCAB4D92BAC73FB002A5B0B /* SetSelections.swift */,
+				5BCAB4DA2BAC73FB002A5B0B /* FunctionsToGroupItems.swift */,
+				5BCAB4DB2BAC73FB002A5B0B /* AddItems.swift */,
+				5BCAB4DC2BAC73FB002A5B0B /* DidSetItems.swift */,
+			);
+			path = ViewModelExtentions;
+			sourceTree = "<group>";
+		};
+		5BCAB4DE2BAC73FB002A5B0B /* Edit_Add_Views */ = {
+			isa = PBXGroup;
+			children = (
+				5BCAB4E42BAC73FB002A5B0B /* AddJobView.swift */,
+				5BCAB4E02BAC73FB002A5B0B /* AddProcedureView.swift */,
+				5BCAB4E22BAC73FB002A5B0B /* AddWelderView.swift */,
+				5BCAB4E52BAC73FB002A5B0B /* AddWeldNumberView.swift */,
+				5BCAB4DF2BAC73FB002A5B0B /* AddProcedurePass.swift */,
+				5BCAB4E12BAC73FB002A5B0B /* AddParametersView.swift */,
+				5BCAB4E62BAC73FB002A5B0B /* CollectParametersView.swift */,
+				5BCAB4E32BAC73FB002A5B0B /* WeldingProcedureFormView.swift */,
+			);
+			path = Edit_Add_Views;
+			sourceTree = "<group>";
+		};
+		5BCAB4E72BAC73FB002A5B0B /* WeldingDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				5BCAB4E92BAC73FB002A5B0B /* WeldingInspectorModel.swift */,
+				5BCAB4E82BAC73FB002A5B0B /* Load_Data.swift */,
+			);
+			path = WeldingDataModels;
+			sourceTree = "<group>";
+		};
+		5BCAB4EA2BAC73FB002A5B0B /* WeldingDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				5BCAB4EB2BAC73FB002A5B0B /* StorageFunctions.swift */,
+			);
+			path = WeldingDataStorage;
+			sourceTree = "<group>";
+		};
+		5BCAB4EC2BAC73FB002A5B0B /* HelperViews */ = {
+			isa = PBXGroup;
+			children = (
+				5BCAB4EF2BAC73FB002A5B0B /* RangeSlider.swift */,
+				5BCAB4ED2BAC73FB002A5B0B /* CustomSectionHeader.swift */,
+				5BCAB4EE2BAC73FB002A5B0B /* circleSlider VC.swift */,
+				5BCAB4F02BAC73FB002A5B0B /* KeyValueView.swift */,
+				5BCAB4F12BAC73FB002A5B0B /* MultiSelectView.swift */,
+				5BCAB4F22BAC73FB002A5B0B /* KeyValueRow.swift */,
+				5BCAB4F32BAC73FB002A5B0B /* RoundStopwatchView.swift */,
+			);
+			path = HelperViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +417,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BCAB4A22BAC6E59002A5B0B /* Launch Screen.storyboard in Resources */,
 				5BCAB4772BAC6D68002A5B0B /* Preview Assets.xcassets in Resources */,
 				5BCAB4742BAC6D68002A5B0B /* Assets.xcassets in Resources */,
+				5BCAB4AC2BAC6EE9002A5B0B /* Seed.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +445,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BCAB4722BAC6D66002A5B0B /* ContentView.swift in Sources */,
-				5BCAB4702BAC6D66002A5B0B /* WeldingInspectorApp.swift in Sources */,
+				5BCAB5062BAC73FB002A5B0B /* AddItems.swift in Sources */,
+				5BCAB50C2BAC73FB002A5B0B /* AddWelderView.swift in Sources */,
+				5BCAB4F62BAC73FB002A5B0B /* SetTempValues.swift in Sources */,
+				5BCAB5042BAC73FB002A5B0B /* SetSelections.swift in Sources */,
+				5BCAB5162BAC73FC002A5B0B /* RangeSlider.swift in Sources */,
+				5BCAB5022BAC73FB002A5B0B /* UpdateItems.swift in Sources */,
+				5BCAB4FF2BAC73FB002A5B0B /* ProfileView.swift in Sources */,
+				5BCAB4F72BAC73FB002A5B0B /* CalculateHeatInput.swift in Sources */,
+				5BCAB50A2BAC73FB002A5B0B /* AddProcedureView.swift in Sources */,
+				5BCAB5122BAC73FB002A5B0B /* WeldingInspectorModel.swift in Sources */,
+				5BCAB5172BAC73FC002A5B0B /* KeyValueView.swift in Sources */,
+				5BCAB51A2BAC73FC002A5B0B /* RoundStopwatchView.swift in Sources */,
+				5BCAB5002BAC73FB002A5B0B /* DeleteSelections.swift in Sources */,
+				5BCAB5192BAC73FC002A5B0B /* KeyValueRow.swift in Sources */,
+				5BCAB49A2BAC6DAD002A5B0B /* AppEntryPoint.swift in Sources */,
+				5BCAB50E2BAC73FB002A5B0B /* AddJobView.swift in Sources */,
+				5BCAB5132BAC73FB002A5B0B /* StorageFunctions.swift in Sources */,
+				5BCAB4FE2BAC73FB002A5B0B /* WeldNumberView.swift in Sources */,
+				5BCAB4FC2BAC73FB002A5B0B /* WeldPassView.swift in Sources */,
+				5BCAB5102BAC73FB002A5B0B /* CollectParametersView.swift in Sources */,
+				5BCAB5072BAC73FB002A5B0B /* DidSetItems.swift in Sources */,
+				5BCAB4FB2BAC73FB002A5B0B /* WelderView.swift in Sources */,
+				5BCAB5182BAC73FC002A5B0B /* MultiSelectView.swift in Sources */,
+				5BCAB5152BAC73FC002A5B0B /* circleSlider VC.swift in Sources */,
+				5BCAB50B2BAC73FB002A5B0B /* AddParametersView.swift in Sources */,
+				5BCAB50D2BAC73FB002A5B0B /* WeldingProcedureFormView.swift in Sources */,
+				5BCAB5032BAC73FB002A5B0B /* ConversionFunctions.swift in Sources */,
+				5BCAB4F42BAC73FB002A5B0B /* CalculateArcSpeed.swift in Sources */,
+				5BCAB5092BAC73FB002A5B0B /* AddProcedurePass.swift in Sources */,
+				5BCAB5142BAC73FC002A5B0B /* CustomSectionHeader.swift in Sources */,
+				5BCAB5112BAC73FB002A5B0B /* Load_Data.swift in Sources */,
+				5BCAB4F92BAC73FB002A5B0B /* PassParameterView.swift in Sources */,
+				5BCAB4F52BAC73FB002A5B0B /* TemporaryValueBuilder.swift in Sources */,
+				5BCAB4F82BAC73FB002A5B0B /* HandleKeyAction.swift in Sources */,
+				5BCAB5012BAC73FB002A5B0B /* DataStorage.swift in Sources */,
+				5BCAB4FD2BAC73FB002A5B0B /* ProcedureView.swift in Sources */,
+				5BCAB4FA2BAC73FB002A5B0B /* MainJobView.swift in Sources */,
+				5BCAB50F2BAC73FB002A5B0B /* AddWeldNumberView.swift in Sources */,
+				5BCAB5052BAC73FB002A5B0B /* FunctionsToGroupItems.swift in Sources */,
+				5BCAB5082BAC73FB002A5B0B /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +651,7 @@
 				DEVELOPMENT_TEAM = 55259ULBY3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeldingInspector/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +681,7 @@
 				DEVELOPMENT_TEAM = 55259ULBY3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeldingInspector/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
