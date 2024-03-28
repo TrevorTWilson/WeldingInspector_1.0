@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BBDB6372BB0614000A3E685 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB6362BB0614000A3E685 /* Connectivity.swift */; };
+		5BBDB6392BB1CEB700A3E685 /* SendWeldNumbersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB6382BB1CEB700A3E685 /* SendWeldNumbersView.swift */; };
+		5BBDB63D2BB3127300A3E685 /* RecievedInvite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB63C2BB3127300A3E685 /* RecievedInvite.swift */; };
 		5BCAB4742BAC6D68002A5B0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAB4732BAC6D68002A5B0B /* Assets.xcassets */; };
 		5BCAB4772BAC6D68002A5B0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAB4762BAC6D68002A5B0B /* Preview Assets.xcassets */; };
 		5BCAB4812BAC6D68002A5B0B /* WeldingInspectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4802BAC6D68002A5B0B /* WeldingInspectorTests.swift */; };
@@ -74,6 +77,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5BBDB6362BB0614000A3E685 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		5BBDB6382BB1CEB700A3E685 /* SendWeldNumbersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendWeldNumbersView.swift; sourceTree = "<group>"; };
+		5BBDB63C2BB3127300A3E685 /* RecievedInvite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecievedInvite.swift; sourceTree = "<group>"; };
 		5BCAB46C2BAC6D66002A5B0B /* WeldingInspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeldingInspector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BCAB4732BAC6D68002A5B0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BCAB4762BAC6D68002A5B0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -152,6 +158,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BBDB6352BB05F8B00A3E685 /* MultiPeerConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				5BBDB6362BB0614000A3E685 /* Connectivity.swift */,
+				5BBDB6382BB1CEB700A3E685 /* SendWeldNumbersView.swift */,
+				5BBDB63C2BB3127300A3E685 /* RecievedInvite.swift */,
+			);
+			path = MultiPeerConnectivity;
+			sourceTree = "<group>";
+		};
 		5BCAB4632BAC6D66002A5B0B = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +263,7 @@
 			children = (
 				5BCAB4DD2BAC73FB002A5B0B /* MainViewModel.swift */,
 				5BCAB4D32BAC73FB002A5B0B /* ProfileView.swift */,
+				5BBDB6352BB05F8B00A3E685 /* MultiPeerConnectivity */,
 				5BCAB4D42BAC73FB002A5B0B /* ViewModelExtentions */,
 			);
 			path = ViewModels;
@@ -457,7 +474,9 @@
 				5BCAB5122BAC73FB002A5B0B /* WeldingInspectorModel.swift in Sources */,
 				5BCAB5172BAC73FC002A5B0B /* KeyValueView.swift in Sources */,
 				5BCAB51A2BAC73FC002A5B0B /* RoundStopwatchView.swift in Sources */,
+				5BBDB6372BB0614000A3E685 /* Connectivity.swift in Sources */,
 				5BCAB5002BAC73FB002A5B0B /* DeleteSelections.swift in Sources */,
+				5BBDB63D2BB3127300A3E685 /* RecievedInvite.swift in Sources */,
 				5BCAB5192BAC73FC002A5B0B /* KeyValueRow.swift in Sources */,
 				5BCAB49A2BAC6DAD002A5B0B /* AppEntryPoint.swift in Sources */,
 				5BCAB50E2BAC73FB002A5B0B /* AddJobView.swift in Sources */,
@@ -485,6 +504,7 @@
 				5BCAB50F2BAC73FB002A5B0B /* AddWeldNumberView.swift in Sources */,
 				5BCAB5052BAC73FB002A5B0B /* FunctionsToGroupItems.swift in Sources */,
 				5BCAB5082BAC73FB002A5B0B /* MainViewModel.swift in Sources */,
+				5BBDB6392BB1CEB700A3E685 /* SendWeldNumbersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,6 +672,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeldingInspector/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Would like to send a weld";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -682,6 +706,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeldingInspector/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Would like to send a weld";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

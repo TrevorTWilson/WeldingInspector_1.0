@@ -7,15 +7,20 @@
 
 import SwiftUI
 
+
 @main
 struct AppEntryPoint: App {
-    
+    @StateObject var mainViewModel = MainViewModel()
+    @StateObject var multipeerManager = MultipeerConnectivityManager(mainViewModel: MainViewModel())
+
     var body: some Scene {
         WindowGroup {
-            
-            
             MainJobView()
-
+                .environmentObject(mainViewModel)
+                .environmentObject(multipeerManager)
+                
         }
     }
 }
+
+
