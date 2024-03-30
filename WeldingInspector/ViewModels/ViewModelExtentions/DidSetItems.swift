@@ -101,4 +101,19 @@ extension MainViewModel {
             print("No weld pass selected")
         }
     }
+    
+    func selectedWeldToSendDidChange () {
+        // Perform actions when selectedJob is set or changed for deBugging
+        if let number = selectedWeldToSend {
+            // Print to console for deBugging
+            if let index = weldingInspector.jobs[jobIndex].weldingProcedures[procedureIndex].weldersQualified[welderIndex].welds.firstIndex(where: {$0.id == selectedWeldToSend?.id}){
+                weldNumberIndex = index
+                print("Selected Weld to SEND = JobIndex: \(jobIndex) with Procedure Index: \(procedureIndex), and Welder Index \(welderIndex) has been set to index: \(weldNumberIndex)")
+            } else{
+                print("Selected weld number: \(number.name) INDEX FAILED")
+            }
+        } else {
+            print("No weld number to send selected")
+        }
+    }
 }

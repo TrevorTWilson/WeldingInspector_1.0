@@ -84,9 +84,21 @@ struct WelderNumberView: View {
                                     }
                                     Button(action: {
                                         // Send action
+                                        multipeerManager.mainViewModel.setSelectedWeldToSend(weldId: weldID)
+                                        mainViewModel.setSelectedWeldToSend(weldId: weldID)
                                         selectedWeldNumber = weldID
-                                        sendWeldView = true
-                                    }) {
+                                        if multipeerManager.session.connectedPeers.isEmpty {
+                                            sendWeldView = true
+                                        } else {
+                                            if let unwrappedWeldNumber = multipeerManager.mainViewModel.selectedWeldToSend {
+                                                for peer in multipeerManager.peerList {
+                                                    multipeerManager.sendWeldNumberToPeer(weldNumber: unwrappedWeldNumber, toPeer: peer)
+                                                }
+                                            } else {
+                                                print("No weld attached")
+                                            }
+                                        }
+                                    })  {
                                         Label("Send", systemImage: "square.and.arrow.up")
                                     }
                                 }
@@ -153,7 +165,7 @@ struct WelderNumberView: View {
                 })
                 .sheet(isPresented: $sendWeldView, content: {
                     // Add new job item view
-                    SendWeldNumbersView( mainViewModel: mainViewModel, isPresented: $sendWeldView, selectedWeldNumber: selectedWeldNumber )
+                    SendWeldNumbersView(isPresented: $sendWeldView, selectedWeldNumber: selectedWeldNumber )
                 })
                 .onChange(of: multipeerManager.recievedInvite) {
                     newInvite = multipeerManager.recievedInvite
@@ -174,3 +186,4 @@ struct WeldNumberView_Previews: PreviewProvider {
             .environmentObject(mockConnectionManager)
     }
 }
+

@@ -20,13 +20,14 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
         }
     }
     
-    
+    var isTransmiting: Bool = false
     
     var session: MCSession!
     var peerID: MCPeerID!
     var advertiser: MCNearbyServiceAdvertiser!
     var browser: MCNearbyServiceBrowser!
     
+    @Published var connectedList: [MCPeerID] = []
     @Published var peerList: [MCPeerID] = []
     @Published var recievedInvite: Bool = false
     @Published var recievedInviteFrom: MCPeerID?
@@ -74,16 +75,14 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
     
     // Send data to a peer with a WeldNumber payload
     func sendWeldNumberToPeer(weldNumber: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers, toPeer peer: MCPeerID) {
-//        // Usage example to send WeldNumber object to a specific peer
-//        let weldNumberToSend = WeldingInspector.Job.WeldingProcedure.Welder.WeldNumber(/* Initialize with your data */)
-//        let targetPeer = /* Specify the target peer MCPeerID */
-//        sendWeldNumberToPeer(weldNumber: weldNumberToSend, toPeer: targetPeer)
+
         do {
             let jsonData = try JSONEncoder().encode(weldNumber)
             try session.send(jsonData, toPeers: [peer], with: .reliable)
         } catch {
             print("Error sending WeldNumber data to peer: \(error.localizedDescription)")
         }
+        isTransmiting = false
     }
     
     // Method in MultipeerConnectivityManager to send an invitation with context
@@ -118,7 +117,23 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
         case .connected:
             print("Peer \(peerID.displayName) is connected.")
             // Handle the case when a peer is connected
+            connectedList.append(peerID)
             print("\(session.connectedPeers)")
+            if isTransmiting {
+                if !session.connectedPeers.isEmpty {
+                    print("Sending Weld")
+                    print(mainViewModel.selectedWeldToSend as Any)
+                    if let unwrappedWeldNumber = mainViewModel.selectedWeldToSend {
+                        sendWeldNumberToPeer(weldNumber: unwrappedWeldNumber, toPeer: peerID)
+                    } else {
+                        print("No weld attached")
+                    }
+                    
+                } else {
+                    print("connectedPeers is Empty")
+                }
+            }
+            
             
         @unknown default:
             // Handle any unknown future states
@@ -195,6 +210,9 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
            DispatchQueue.main.async {
                if let index = self.peerList.firstIndex(of: peerID) {
                    self.peerList.remove(at: index)
+               }
+               if let index = self.connectedList.firstIndex(of: peerID) {
+                   self.connectedList.remove(at: index)
                }
            }
        }

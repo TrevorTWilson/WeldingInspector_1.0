@@ -34,4 +34,8 @@ extension MainViewModel {
     func setSelectedWeldPass(weldPass: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers.Parameters){
         selectedWeldPass = weldPass
     }
+    
+    func setSelectedWeldToSend(weldId: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers) {
+        selectedWeldToSend = weldId
+    }
 }

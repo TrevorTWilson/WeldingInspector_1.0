@@ -58,6 +58,12 @@ class MainViewModel: ObservableObject, Equatable {
         }
     }
     
+    @Published var selectedWeldToSend: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers? {
+        didSet {
+            selectedWeldToSendDidChange()
+        }
+    }
+    
     private var cancellables = Set<AnyCancellable>()
     
     var jobIndex: Int = 0

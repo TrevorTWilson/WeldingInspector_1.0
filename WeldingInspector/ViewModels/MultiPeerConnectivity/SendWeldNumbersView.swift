@@ -9,7 +9,7 @@ import SwiftUI
 import MultipeerConnectivity
 
 struct SendWeldNumbersView: View {
-    @ObservedObject var mainViewModel: MainViewModel
+    @EnvironmentObject var mainViewModel: MainViewModel
     @EnvironmentObject var multipeerManager: MultipeerConnectivityManager
     
     @Binding var isPresented: Bool
@@ -17,8 +17,7 @@ struct SendWeldNumbersView: View {
     
     @State private var selectedPeer: MCPeerID?
     
-    public init(mainViewModel: MainViewModel, isPresented: Binding<Bool>, selectedWeldNumber: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers? = nil) {
-        self.mainViewModel = mainViewModel
+    public init(isPresented: Binding<Bool>, selectedWeldNumber: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers? = nil) {
         self._isPresented = isPresented
         self.selectedWeldNumber = selectedWeldNumber
     }
@@ -45,12 +44,8 @@ struct SendWeldNumbersView: View {
                     Button("Send Invitation to \(selectedPeer.displayName)") {
                        // let weldNumberData = try? JSONEncoder().encode(weldNumber)
                         DispatchQueue.main.async {
+                            
                             multipeerManager.sendInvitationToPeer(peer: selectedPeer, withContext: nil)
-                            if !multipeerManager.session.connectedPeers.isEmpty {
-                                print("Sending Weld")
-                                let weldNumberData = try? JSONEncoder().encode(weldNumber)
-                                multipeerManager.sendWeldNumberToPeer(weldNumber: weldNumber, toPeer: selectedPeer)
-                            }
                             isPresented = false
                         }
                     }
@@ -62,7 +57,9 @@ struct SendWeldNumbersView: View {
 
         }
         .onAppear(){
+            
             multipeerManager.startBrowsing()
+            multipeerManager.isTransmiting = true
         }
         .onDisappear() {
             multipeerManager.stopBrowsing()
@@ -74,7 +71,7 @@ struct SendWeldNumbersView: View {
 struct SendWeldNumbersView_Previews: PreviewProvider {
     static var previews: some View {
         @State var isPresented: Bool = true
-        SendWeldNumbersView(mainViewModel: MainViewModel(), isPresented: $isPresented)
+        SendWeldNumbersView(isPresented: $isPresented)
             .environmentObject(MultipeerConnectivityManager(mainViewModel: MainViewModel()))
     }
 }
