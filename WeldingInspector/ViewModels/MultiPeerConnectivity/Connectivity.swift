@@ -10,7 +10,7 @@ import SwiftUI
 import MultipeerConnectivity
 
 class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegate, MCNearbyServiceAdvertiserDelegate, MCNearbyServiceBrowserDelegate {
-    var mainViewModel: MainViewModel
+    
     
     private let serviceType = "Send-Weld"
     
@@ -33,9 +33,12 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
     @Published var recievedInviteFrom: MCPeerID?
     @Published var invitationHandler: ((Bool, MCSession?) -> Void)?
     
+    var weldToSend: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers?
+    var procedureToSend: WeldingInspector.Job.WeldingProcedure?
+    
 
-    init(mainViewModel: MainViewModel) {
-           self.mainViewModel = mainViewModel
+    override init() {
+           
            super.init()
            
            peerID = MCPeerID(displayName: UIDevice.current.name)
@@ -117,13 +120,16 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
         case .connected:
             print("Peer \(peerID.displayName) is connected.")
             // Handle the case when a peer is connected
-            connectedList.append(peerID)
+            DispatchQueue.main.async {
+                self.connectedList.append(peerID)
+            }
+            
             print("\(session.connectedPeers)")
             if isTransmiting {
                 if !session.connectedPeers.isEmpty {
                     print("Sending Weld")
-                    print(mainViewModel.selectedWeldToSend as Any)
-                    if let unwrappedWeldNumber = mainViewModel.selectedWeldToSend {
+                    print(weldToSend as Any)
+                    if let unwrappedWeldNumber = weldToSend {
                         sendWeldNumberToPeer(weldNumber: unwrappedWeldNumber, toPeer: peerID)
                     } else {
                         print("No weld attached")

@@ -11,7 +11,7 @@ import SwiftUI
 @main
 struct AppEntryPoint: App {
     @StateObject var mainViewModel = MainViewModel()
-    @StateObject var multipeerManager = MultipeerConnectivityManager(mainViewModel: MainViewModel())
+    @StateObject var multipeerManager = MultipeerConnectivityManager()
 
     var body: some Scene {
         WindowGroup {

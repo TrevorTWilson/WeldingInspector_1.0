@@ -68,7 +68,7 @@ struct RecievedInvite_Previews: PreviewProvider {
     @State static var showRecievedInvite = true
     static var previews: some View {
         let mainViewModel = MainViewModel()
-        let multipeerManager = MultipeerConnectivityManager(mainViewModel: mainViewModel)
+        let multipeerManager = MultipeerConnectivityManager()
         
         return RecievedInvite(showRecievedInvite: $showRecievedInvite)
             .environmentObject(mainViewModel)

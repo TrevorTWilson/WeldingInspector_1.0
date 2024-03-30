@@ -150,7 +150,7 @@ struct ProcedureView: View {
 struct ProcedureView_Previews: PreviewProvider {
     static var previews: some View {
         let mockMainViewModel = MainViewModel()
-        let mockConnectionManager = MultipeerConnectivityManager(mainViewModel: mockMainViewModel)
+        let mockConnectionManager = MultipeerConnectivityManager()
         // set selected job in mainViewModel
         
         //mockMainViewModel.weldingInspector = loadSample() // Initialize with default data or mock data

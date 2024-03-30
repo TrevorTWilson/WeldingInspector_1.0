@@ -165,7 +165,7 @@ struct WeldPassView: View {
 struct WeldPassView_Previews: PreviewProvider {
     static var previews: some View {
         let mockMainViewModel = MainViewModel()
-        let mockConnectionManager = MultipeerConnectivityManager(mainViewModel: mockMainViewModel)
+        let mockConnectionManager = MultipeerConnectivityManager()
 
         return WeldPassView(selectedWeldNumber: mockMainViewModel.weldingInspector.jobs[1].weldingProcedures[0].weldersQualified[0].welds[0])
             .environmentObject(mockMainViewModel)

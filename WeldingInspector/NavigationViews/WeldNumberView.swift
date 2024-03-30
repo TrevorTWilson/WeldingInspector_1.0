@@ -84,14 +84,13 @@ struct WelderNumberView: View {
                                     }
                                     Button(action: {
                                         // Send action
-                                        multipeerManager.mainViewModel.setSelectedWeldToSend(weldId: weldID)
-                                        mainViewModel.setSelectedWeldToSend(weldId: weldID)
+                                        multipeerManager.weldToSend = weldID
                                         selectedWeldNumber = weldID
                                         if multipeerManager.session.connectedPeers.isEmpty {
                                             sendWeldView = true
                                         } else {
-                                            if let unwrappedWeldNumber = multipeerManager.mainViewModel.selectedWeldToSend {
-                                                for peer in multipeerManager.peerList {
+                                            if let unwrappedWeldNumber = multipeerManager.weldToSend {
+                                                for peer in multipeerManager.connectedList {
                                                     multipeerManager.sendWeldNumberToPeer(weldNumber: unwrappedWeldNumber, toPeer: peer)
                                                 }
                                             } else {
@@ -165,7 +164,7 @@ struct WelderNumberView: View {
                 })
                 .sheet(isPresented: $sendWeldView, content: {
                     // Add new job item view
-                    SendWeldNumbersView(isPresented: $sendWeldView, selectedWeldNumber: selectedWeldNumber )
+                    SendWeldNumbersView(isPresented: $sendWeldView)
                 })
                 .onChange(of: multipeerManager.recievedInvite) {
                     newInvite = multipeerManager.recievedInvite
@@ -179,7 +178,7 @@ struct WelderNumberView: View {
 struct WeldNumberView_Previews: PreviewProvider {
     static var previews: some View {
         let mockMainViewModel = MainViewModel()
-        let mockConnectionManager = MultipeerConnectivityManager(mainViewModel: mockMainViewModel)
+        let mockConnectionManager = MultipeerConnectivityManager()
         
         return WelderNumberView(selectedWelder: mockMainViewModel.weldingInspector.jobs[1].weldingProcedures[0].weldersQualified[0])
             .environmentObject(mockMainViewModel)

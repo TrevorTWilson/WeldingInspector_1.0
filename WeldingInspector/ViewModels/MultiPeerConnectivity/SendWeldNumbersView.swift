@@ -39,7 +39,7 @@ struct SendWeldNumbersView: View {
             }
             Spacer()
             if let selectedPeer = selectedPeer {
-                if let weldNumber = selectedWeldNumber {
+                if let weldNumber = multipeerManager.weldToSend {
                     // Button code in SendWeldNumbersView
                     Button("Send Invitation to \(selectedPeer.displayName)") {
                        // let weldNumberData = try? JSONEncoder().encode(weldNumber)
@@ -72,7 +72,8 @@ struct SendWeldNumbersView_Previews: PreviewProvider {
     static var previews: some View {
         @State var isPresented: Bool = true
         SendWeldNumbersView(isPresented: $isPresented)
-            .environmentObject(MultipeerConnectivityManager(mainViewModel: MainViewModel()))
+            .environmentObject(MainViewModel())
+            .environmentObject(MultipeerConnectivityManager())
     }
 }
 

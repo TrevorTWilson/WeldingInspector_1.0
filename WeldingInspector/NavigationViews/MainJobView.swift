@@ -117,7 +117,7 @@ struct MainJobView: View {
 struct MainJobView_Previews: PreviewProvider {
     static var previews: some View {
         let mockMainViewModel = MainViewModel()
-        let mockConnectionManager = MultipeerConnectivityManager(mainViewModel: mockMainViewModel)
+        let mockConnectionManager = MultipeerConnectivityManager()
         //mockMainViewModel.weldingInspector = loadSample() // Initialize with default data or mock data
         
         return MainJobView()
