@@ -125,20 +125,20 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
             }
             
             print("\(session.connectedPeers)")
-            if isTransmiting {
-                if !session.connectedPeers.isEmpty {
-                    print("Sending Weld")
-                    print(weldToSend as Any)
-                    if let unwrappedWeldNumber = weldToSend {
-                        sendWeldNumberToPeer(weldNumber: unwrappedWeldNumber, toPeer: peerID)
-                    } else {
-                        print("No weld attached")
-                    }
-                    
-                } else {
-                    print("connectedPeers is Empty")
-                }
-            }
+//            if isTransmiting {
+//                if !session.connectedPeers.isEmpty {
+//                    print("Sending Weld")
+//                    print(weldToSend as Any)
+//                    if let unwrappedWeldNumber = weldToSend {
+//                        sendWeldNumberToPeer(weldNumber: unwrappedWeldNumber, toPeer: peerID)
+//                    } else {
+//                        print("No weld attached")
+//                    }
+//                    
+//                } else {
+//                    print("connectedPeers is Empty")
+//                }
+//            }
             
             
         @unknown default:

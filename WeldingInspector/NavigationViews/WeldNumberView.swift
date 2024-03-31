@@ -86,17 +86,7 @@ struct WelderNumberView: View {
                                         // Send action
                                         multipeerManager.weldToSend = weldID
                                         selectedWeldNumber = weldID
-                                        if multipeerManager.session.connectedPeers.isEmpty {
-                                            sendWeldView = true
-                                        } else {
-                                            if let unwrappedWeldNumber = multipeerManager.weldToSend {
-                                                for peer in multipeerManager.connectedList {
-                                                    multipeerManager.sendWeldNumberToPeer(weldNumber: unwrappedWeldNumber, toPeer: peer)
-                                                }
-                                            } else {
-                                                print("No weld attached")
-                                            }
-                                        }
+                                        sendWeldView = true
                                     })  {
                                         Label("Send", systemImage: "square.and.arrow.up")
                                     }
