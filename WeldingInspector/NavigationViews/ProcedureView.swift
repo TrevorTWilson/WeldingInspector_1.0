@@ -21,6 +21,7 @@ struct ProcedureView: View {
     @State private var addNewProcedure = false
     @State private var showProcedureFormView = false
     @State private var newInvite = false
+    @State private var sendWeldProcedureView = false
     
     var body: some View {
         
@@ -74,6 +75,13 @@ struct ProcedureView: View {
                                         print(selectedItemForDeletion as Any)
                                     }) {
                                         Label("Delete", systemImage: "trash")
+                                    }
+                                    Button(action: {
+                                        // Send action
+                                        multipeerManager.procedureToSend = procedure
+                                        sendWeldProcedureView = true
+                                    })  {
+                                        Label("Send", systemImage: "square.and.arrow.up")
                                     }
                                 }
                             }
@@ -138,6 +146,10 @@ struct ProcedureView: View {
                         WeldingProcedureFormView(mainViewModel: mainViewModel, isPresented: $showProcedureFormView)
                     }
                 }
+                .sheet(isPresented: $sendWeldProcedureView, content: {
+                    // Add new job item view
+                    SendWeldDataView(isPresented: $sendWeldProcedureView)
+                })
                 .onChange(of: multipeerManager.recievedInvite) {
                     newInvite = multipeerManager.recievedInvite
                 }

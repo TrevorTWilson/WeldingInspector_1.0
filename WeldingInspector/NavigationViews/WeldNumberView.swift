@@ -154,7 +154,7 @@ struct WelderNumberView: View {
                 })
                 .sheet(isPresented: $sendWeldView, content: {
                     // Add new job item view
-                    SendWeldNumbersView(isPresented: $sendWeldView)
+                    SendWeldDataView(isPresented: $sendWeldView)
                 })
                 .onChange(of: multipeerManager.recievedInvite) {
                     newInvite = multipeerManager.recievedInvite

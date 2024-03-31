@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5BBDB6372BB0614000A3E685 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB6362BB0614000A3E685 /* Connectivity.swift */; };
-		5BBDB6392BB1CEB700A3E685 /* SendWeldNumbersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB6382BB1CEB700A3E685 /* SendWeldNumbersView.swift */; };
+		5BBDB6392BB1CEB700A3E685 /* SendWeldDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB6382BB1CEB700A3E685 /* SendWeldDataView.swift */; };
 		5BBDB63D2BB3127300A3E685 /* RecievedInvite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB63C2BB3127300A3E685 /* RecievedInvite.swift */; };
 		5BCAB4742BAC6D68002A5B0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAB4732BAC6D68002A5B0B /* Assets.xcassets */; };
 		5BCAB4772BAC6D68002A5B0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAB4762BAC6D68002A5B0B /* Preview Assets.xcassets */; };
@@ -78,7 +78,7 @@
 
 /* Begin PBXFileReference section */
 		5BBDB6362BB0614000A3E685 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
-		5BBDB6382BB1CEB700A3E685 /* SendWeldNumbersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendWeldNumbersView.swift; sourceTree = "<group>"; };
+		5BBDB6382BB1CEB700A3E685 /* SendWeldDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendWeldDataView.swift; sourceTree = "<group>"; };
 		5BBDB63C2BB3127300A3E685 /* RecievedInvite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecievedInvite.swift; sourceTree = "<group>"; };
 		5BCAB46C2BAC6D66002A5B0B /* WeldingInspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeldingInspector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BCAB4732BAC6D68002A5B0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				5BBDB6362BB0614000A3E685 /* Connectivity.swift */,
-				5BBDB6382BB1CEB700A3E685 /* SendWeldNumbersView.swift */,
+				5BBDB6382BB1CEB700A3E685 /* SendWeldDataView.swift */,
 				5BBDB63C2BB3127300A3E685 /* RecievedInvite.swift */,
 			);
 			path = MultiPeerConnectivity;
@@ -504,7 +504,7 @@
 				5BCAB50F2BAC73FB002A5B0B /* AddWeldNumberView.swift in Sources */,
 				5BCAB5052BAC73FB002A5B0B /* FunctionsToGroupItems.swift in Sources */,
 				5BCAB5082BAC73FB002A5B0B /* MainViewModel.swift in Sources */,
-				5BBDB6392BB1CEB700A3E685 /* SendWeldNumbersView.swift in Sources */,
+				5BBDB6392BB1CEB700A3E685 /* SendWeldDataView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

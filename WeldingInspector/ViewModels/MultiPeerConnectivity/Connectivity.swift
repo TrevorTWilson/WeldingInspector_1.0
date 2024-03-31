@@ -20,8 +20,6 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
         }
     }
     
-    var isTransmiting: Bool = false
-    
     var session: MCSession!
     var peerID: MCPeerID!
     var advertiser: MCNearbyServiceAdvertiser!
@@ -85,7 +83,16 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
         } catch {
             print("Error sending WeldNumber data to peer: \(error.localizedDescription)")
         }
-        isTransmiting = false
+    }
+    
+    func sendWeldingProceduretoPeer(weldProcedure: WeldingInspector.Job.WeldingProcedure, toPeer peer: MCPeerID) {
+
+        do {
+            let jsonData = try JSONEncoder().encode(weldProcedure)
+            try session.send(jsonData, toPeers: [peer], with: .reliable)
+        } catch {
+            print("Error sending WeldNumber data to peer: \(error.localizedDescription)")
+        }
     }
     
     // Method in MultipeerConnectivityManager to send an invitation with context
@@ -123,24 +130,8 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
             DispatchQueue.main.async {
                 self.connectedList.append(peerID)
             }
-            
             print("\(session.connectedPeers)")
-//            if isTransmiting {
-//                if !session.connectedPeers.isEmpty {
-//                    print("Sending Weld")
-//                    print(weldToSend as Any)
-//                    if let unwrappedWeldNumber = weldToSend {
-//                        sendWeldNumberToPeer(weldNumber: unwrappedWeldNumber, toPeer: peerID)
-//                    } else {
-//                        print("No weld attached")
-//                    }
-//                    
-//                } else {
-//                    print("connectedPeers is Empty")
-//                }
-//            }
-            
-            
+  
         @unknown default:
             // Handle any unknown future states
             print("Unknown state for Peer \(peerID.displayName)")
@@ -148,23 +139,22 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
     }
 
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        do {
-            // Deserialize the received Data into a JSON object (Dictionary or suitable Codable type)
-            let decoder = JSONDecoder()
-            let receivedObject = try decoder.decode(WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers.self, from: data)
-            
-            // Handle the received JSON object
-            print("Received JSON object from \(peerID.displayName): \(receivedObject)")
-            
-            // Process the received JSON object as needed
-            
-        } catch {
-            print("Error decoding JSON object: \(error)")
-            // Handle any decoding errors here
+        let decoder = JSONDecoder()
+        
+        if let receivedWeldNumbersObject = try? decoder.decode(WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers.self, from: data) {
+            // Handle the received WeldNumbers object
+            print("Received WeldNumbers object from \(peerID.displayName): \(receivedWeldNumbersObject)")
+            // Process the received WeldNumbers object as needed
+        } else if let receivedWeldProcedureObject = try? decoder.decode(WeldingInspector.Job.WeldingProcedure.self, from: data) {
+            // Handle the received WeldingProcedure object
+            print("Received WeldingProcedure object from \(peerID.displayName): \(receivedWeldProcedureObject)")
+            // Process the received WeldingProcedure object as needed
+        } else {
+            print("Received JSON object does not match the expected types.")
+            // Handle the case where the received object does not match expected types
         }
     }
-
-
+    
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
         // Not Used
     }

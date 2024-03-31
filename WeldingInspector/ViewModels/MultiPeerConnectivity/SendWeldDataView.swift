@@ -8,7 +8,7 @@
 import SwiftUI
 import MultipeerConnectivity
 
-struct SendWeldNumbersView: View {
+struct SendWeldDataView: View {
     @EnvironmentObject var mainViewModel: MainViewModel
     @EnvironmentObject var multipeerManager: MultipeerConnectivityManager
     
@@ -39,7 +39,7 @@ struct SendWeldNumbersView: View {
                         .progressViewStyle(CircularProgressViewStyle())
                 } else {
                     Button("Send Weld to peers") {
-                        handleWeldToSend()
+                        handleDatatoSend()
                     }
                     .buttonStyle(BorderedBlueButtonStyle())
                 }
@@ -79,9 +79,7 @@ struct SendWeldNumbersView: View {
             .buttonStyle(BorderedBlueButtonStyle())
         }
         .onAppear(){
-            
             multipeerManager.startBrowsing()
-            multipeerManager.isTransmiting = true
         }
         .onDisappear() {
             multipeerManager.stopBrowsing()
@@ -104,13 +102,13 @@ struct SendWeldNumbersView: View {
     }
 
     
-    func handleWeldToSend() {
+    func handleDatatoSend() {
         if !multipeerManager.connectedList.isEmpty {
-            sendWeldNumbers()
+            sendWeldingData()
         }
     }
     
-    func sendWeldNumbers() {
+    func sendWeldingData() {
         isSendingData = true
         
         if let unwrappedWeldNumber = multipeerManager.weldToSend {
@@ -121,7 +119,21 @@ struct SendWeldNumbersView: View {
                 withAnimation {
                     isSendingInvitation = false
                 }
+                multipeerManager.weldToSend = nil
                 isPresented = false
+            }
+        } else {
+            if let unwrappedWeldingProcedure = multipeerManager.procedureToSend {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    for peer in multipeerManager.connectedList {
+                        multipeerManager.sendWeldingProceduretoPeer(weldProcedure: unwrappedWeldingProcedure, toPeer: peer)
+                    }
+                    withAnimation {
+                        isSendingInvitation = false
+                    }
+                    multipeerManager.weldToSend = nil
+                    isPresented = false
+                }
             }
         }
     }
@@ -147,7 +159,7 @@ struct SendWeldNumbersView: View {
 struct SendWeldNumbersView_Previews: PreviewProvider {
     static var previews: some View {
         @State var isPresented: Bool = true
-        SendWeldNumbersView(isPresented: $isPresented)
+        SendWeldDataView(isPresented: $isPresented)
             .environmentObject(MainViewModel())
             .environmentObject(MultipeerConnectivityManager())
     }
