@@ -9,6 +9,18 @@ import Foundation
 
 extension MainViewModel {
     
+    func getAllJobs() -> [String : WeldingInspector.Job] {
+        var allJobs: [String : WeldingInspector.Job] = [:]
+        for job in weldingInspector.jobs {
+                var updatedJob = job
+                updatedJob.weldingProcedures = []
+                let label = updatedJob.name
+                allJobs[label] = updatedJob // Assign to the specified key in the dictionary
+            }
+        
+        return allJobs
+    }
+    
     func getAllWeldingProcedure() -> [String : WeldingInspector.Job.WeldingProcedure] {
         var allWeldingProcedures: [String : WeldingInspector.Job.WeldingProcedure] = [:]
         
@@ -23,7 +35,6 @@ extension MainViewModel {
         
         return allWeldingProcedures
     }
-
     
     func getAllWelders() -> [String : WeldingInspector.Job.WeldingProcedure.Welder] {
         

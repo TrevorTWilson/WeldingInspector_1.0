@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B9E71A62BBAFF70000A3EB2 /* RecieveDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E71A52BBAFF70000A3EB2 /* RecieveDataView.swift */; };
 		5BBDB6372BB0614000A3E685 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB6362BB0614000A3E685 /* Connectivity.swift */; };
 		5BBDB6392BB1CEB700A3E685 /* SendWeldDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB6382BB1CEB700A3E685 /* SendWeldDataView.swift */; };
 		5BBDB63D2BB3127300A3E685 /* RecievedInvite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB63C2BB3127300A3E685 /* RecievedInvite.swift */; };
@@ -77,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B9E71A52BBAFF70000A3EB2 /* RecieveDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieveDataView.swift; sourceTree = "<group>"; };
 		5BBDB6362BB0614000A3E685 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		5BBDB6382BB1CEB700A3E685 /* SendWeldDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendWeldDataView.swift; sourceTree = "<group>"; };
 		5BBDB63C2BB3127300A3E685 /* RecievedInvite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecievedInvite.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				5BBDB6362BB0614000A3E685 /* Connectivity.swift */,
 				5BBDB6382BB1CEB700A3E685 /* SendWeldDataView.swift */,
 				5BBDB63C2BB3127300A3E685 /* RecievedInvite.swift */,
+				5B9E71A52BBAFF70000A3EB2 /* RecieveDataView.swift */,
 			);
 			path = MultiPeerConnectivity;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				5BCAB5152BAC73FC002A5B0B /* circleSlider VC.swift in Sources */,
 				5BCAB50B2BAC73FB002A5B0B /* AddParametersView.swift in Sources */,
 				5BCAB50D2BAC73FB002A5B0B /* WeldingProcedureFormView.swift in Sources */,
+				5B9E71A62BBAFF70000A3EB2 /* RecieveDataView.swift in Sources */,
 				5BCAB5032BAC73FB002A5B0B /* ConversionFunctions.swift in Sources */,
 				5BCAB4F42BAC73FB002A5B0B /* CalculateArcSpeed.swift in Sources */,
 				5BCAB5092BAC73FB002A5B0B /* AddProcedurePass.swift in Sources */,

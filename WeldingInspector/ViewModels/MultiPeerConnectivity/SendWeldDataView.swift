@@ -38,7 +38,7 @@ struct SendWeldDataView: View {
                     ProgressView("Sending Data...")
                         .progressViewStyle(CircularProgressViewStyle())
                 } else {
-                    Button("Send Weld to peers") {
+                    Button("Send data to peers") {
                         handleDatatoSend()
                     }
                     .buttonStyle(BorderedBlueButtonStyle())
