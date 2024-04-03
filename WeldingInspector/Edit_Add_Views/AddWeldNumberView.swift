@@ -49,6 +49,7 @@ struct AddWeldNumberView: View {
                     Button("\(sectionTitle) Weld Number") {
                         addWeldNumber()
                     }
+                    .buttonStyle(BorderedBlueButtonStyle())
                     .disabled(name.isEmpty)
                     .frame(width: geometry.size.width / 2 - 10)
                     
@@ -57,6 +58,7 @@ struct AddWeldNumberView: View {
                     Button("Cancel") {
                         isPresented = false
                     }
+                    .buttonStyle(BorderedBlueButtonStyle())
                     .frame(width: geometry.size.width / 2 - 10)
                 }
             }

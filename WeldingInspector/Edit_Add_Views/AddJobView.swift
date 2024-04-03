@@ -82,6 +82,7 @@ struct AddJobView: View {
                             }
                         }
                         .disabled(jobName.isEmpty)
+                        .buttonStyle(BorderedBlueButtonStyle())
                         .frame(width: geometry.size.width / 2 - 10)
                         
                         Spacer()
@@ -89,10 +90,11 @@ struct AddJobView: View {
                         Button("Cancel") {
                             isPresented = false
                         }
+                        .buttonStyle(BorderedBlueButtonStyle())
                         .frame(width: geometry.size.width / 2 - 10)
                     }
                 }
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 20)
             }
         }
         .navigationTitle("Add New Job Item")

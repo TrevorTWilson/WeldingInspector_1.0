@@ -40,6 +40,7 @@ struct ProfileView: View {
                 }
                 isPresented = false
         }
+            .buttonStyle(BorderedBlueButtonStyle())
         .padding()
        
         }

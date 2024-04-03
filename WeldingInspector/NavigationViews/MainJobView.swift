@@ -15,12 +15,19 @@ struct MainJobView: View {
     @State private var showProfileView = false
     @State private var addNewJob = false
     @State private var newInvite = false
+    @State private var newWeld = false
+    @State private var newProcedure = false
     
     var body: some View {
         
         if newInvite {
             RecievedInvite(showRecievedInvite: $newInvite)
+        } else if newWeld {
+            ReceiveDataView(mainViewModel: mainViewModel, showReceivedData: $newWeld, newWeldData: multipeerManager.receivedWeld)
+        } else if newProcedure {
+            ReceiveDataView(mainViewModel: mainViewModel, showReceivedData: $newProcedure, newProcedureData: multipeerManager.receivedProcedure)
         } else {
+            
             NavigationStack {
                 VStack {
                     HStack{
@@ -107,6 +114,14 @@ struct MainJobView: View {
                 })
                 .onChange(of: multipeerManager.recievedInvite) {
                     newInvite = multipeerManager.recievedInvite
+                }
+                .onChange(of: multipeerManager.receivedWeldData) {
+                    newWeld = multipeerManager.receivedWeldData
+                }
+                .onChange(of: multipeerManager.receivedProcedureData) {
+                    newProcedure = multipeerManager.receivedProcedureData
+                    
+                    multipeerManager.receivedProcedureData = false
                 }
             }
         }

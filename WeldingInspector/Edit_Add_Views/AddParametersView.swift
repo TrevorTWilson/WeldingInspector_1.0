@@ -90,6 +90,7 @@ struct AddParametersView: View {
                     Button("\(sectionTitle) Pass Name") {
                         addParameters()
                     }
+                    .buttonStyle(BorderedBlueButtonStyle())
                     .disabled(passName.isEmpty)
                     .frame(width: geometry.size.width / 2 - 10)
                     
@@ -98,6 +99,7 @@ struct AddParametersView: View {
                     Button("Cancel") {
                         isPresented = false
                     }
+                    .buttonStyle(BorderedBlueButtonStyle())
                     .frame(width: geometry.size.width / 2 - 10)
                 }
             }

@@ -40,6 +40,7 @@ struct MultipleSelectionPicker<T: Hashable>: View {
         Button(buttonLabel) {
             self.onSave(Array(self.selectedItems))
         }
+        .buttonStyle(BorderedBlueButtonStyle())
     }
 }
 
@@ -62,6 +63,7 @@ struct MultiPicker: View {
                 self.selectedWeldingProcedures = Array(self.savedItems.values)
                 print(selectedWeldingProcedures)
             }, buttonLabel: "Custom Save")
+            
             Text("Selected Items: \(savedItems.map { "\($0.key): \($0.value)" }.joined(separator: ", "))")
         }
     }

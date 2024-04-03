@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B9E71A62BBAFF70000A3EB2 /* RecieveDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E71A52BBAFF70000A3EB2 /* RecieveDataView.swift */; };
+		5B7AF5362BBD97A200448C0A /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7AF5352BBD97A200448C0A /* ButtonStyles.swift */; };
+		5B7AF5382BBDA1D500448C0A /* PrepareDataToSend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7AF5372BBDA1D500448C0A /* PrepareDataToSend.swift */; };
+		5B9E71A62BBAFF70000A3EB2 /* ReceiveDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E71A52BBAFF70000A3EB2 /* ReceiveDataView.swift */; };
 		5BBDB6372BB0614000A3E685 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB6362BB0614000A3E685 /* Connectivity.swift */; };
 		5BBDB6392BB1CEB700A3E685 /* SendWeldDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB6382BB1CEB700A3E685 /* SendWeldDataView.swift */; };
 		5BBDB63D2BB3127300A3E685 /* RecievedInvite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB63C2BB3127300A3E685 /* RecievedInvite.swift */; };
@@ -78,7 +80,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B9E71A52BBAFF70000A3EB2 /* RecieveDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieveDataView.swift; sourceTree = "<group>"; };
+		5B7AF5352BBD97A200448C0A /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		5B7AF5372BBDA1D500448C0A /* PrepareDataToSend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareDataToSend.swift; sourceTree = "<group>"; };
+		5B9E71A52BBAFF70000A3EB2 /* ReceiveDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveDataView.swift; sourceTree = "<group>"; };
 		5BBDB6362BB0614000A3E685 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		5BBDB6382BB1CEB700A3E685 /* SendWeldDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendWeldDataView.swift; sourceTree = "<group>"; };
 		5BBDB63C2BB3127300A3E685 /* RecievedInvite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecievedInvite.swift; sourceTree = "<group>"; };
@@ -166,7 +170,7 @@
 				5BBDB6362BB0614000A3E685 /* Connectivity.swift */,
 				5BBDB6382BB1CEB700A3E685 /* SendWeldDataView.swift */,
 				5BBDB63C2BB3127300A3E685 /* RecievedInvite.swift */,
-				5B9E71A52BBAFF70000A3EB2 /* RecieveDataView.swift */,
+				5B9E71A52BBAFF70000A3EB2 /* ReceiveDataView.swift */,
 			);
 			path = MultiPeerConnectivity;
 			sourceTree = "<group>";
@@ -283,6 +287,7 @@
 				5BCAB4DA2BAC73FB002A5B0B /* FunctionsToGroupItems.swift */,
 				5BCAB4DB2BAC73FB002A5B0B /* AddItems.swift */,
 				5BCAB4DC2BAC73FB002A5B0B /* DidSetItems.swift */,
+				5B7AF5372BBDA1D500448C0A /* PrepareDataToSend.swift */,
 			);
 			path = ViewModelExtentions;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 				5BCAB4F12BAC73FB002A5B0B /* MultiSelectView.swift */,
 				5BCAB4F22BAC73FB002A5B0B /* KeyValueRow.swift */,
 				5BCAB4F32BAC73FB002A5B0B /* RoundStopwatchView.swift */,
+				5B7AF5352BBD97A200448C0A /* ButtonStyles.swift */,
 			);
 			path = HelperViews;
 			sourceTree = "<group>";
@@ -478,6 +484,7 @@
 				5BCAB5172BAC73FC002A5B0B /* KeyValueView.swift in Sources */,
 				5BCAB51A2BAC73FC002A5B0B /* RoundStopwatchView.swift in Sources */,
 				5BBDB6372BB0614000A3E685 /* Connectivity.swift in Sources */,
+				5B7AF5362BBD97A200448C0A /* ButtonStyles.swift in Sources */,
 				5BCAB5002BAC73FB002A5B0B /* DeleteSelections.swift in Sources */,
 				5BBDB63D2BB3127300A3E685 /* RecievedInvite.swift in Sources */,
 				5BCAB5192BAC73FC002A5B0B /* KeyValueRow.swift in Sources */,
@@ -493,11 +500,12 @@
 				5BCAB5152BAC73FC002A5B0B /* circleSlider VC.swift in Sources */,
 				5BCAB50B2BAC73FB002A5B0B /* AddParametersView.swift in Sources */,
 				5BCAB50D2BAC73FB002A5B0B /* WeldingProcedureFormView.swift in Sources */,
-				5B9E71A62BBAFF70000A3EB2 /* RecieveDataView.swift in Sources */,
+				5B9E71A62BBAFF70000A3EB2 /* ReceiveDataView.swift in Sources */,
 				5BCAB5032BAC73FB002A5B0B /* ConversionFunctions.swift in Sources */,
 				5BCAB4F42BAC73FB002A5B0B /* CalculateArcSpeed.swift in Sources */,
 				5BCAB5092BAC73FB002A5B0B /* AddProcedurePass.swift in Sources */,
 				5BCAB5142BAC73FC002A5B0B /* CustomSectionHeader.swift in Sources */,
+				5B7AF5382BBDA1D500448C0A /* PrepareDataToSend.swift in Sources */,
 				5BCAB5112BAC73FB002A5B0B /* Load_Data.swift in Sources */,
 				5BCAB4F92BAC73FB002A5B0B /* PassParameterView.swift in Sources */,
 				5BCAB4F52BAC73FB002A5B0B /* TemporaryValueBuilder.swift in Sources */,

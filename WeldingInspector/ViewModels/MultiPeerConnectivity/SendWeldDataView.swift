@@ -137,21 +137,6 @@ struct SendWeldDataView: View {
             }
         }
     }
-    
-    struct BorderedBlueButtonStyle: ButtonStyle {
-        func makeBody(configuration: Configuration) -> some View {
-            configuration.label
-                .padding()
-                .foregroundColor(.blue)
-                .background(Color.white)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.blue, lineWidth: 1)
-                )
-                .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
-        }
-    }
-
 }
 
 

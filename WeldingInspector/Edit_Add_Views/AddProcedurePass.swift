@@ -31,10 +31,12 @@ struct AddProcedurePass: View {
                 Button("Add Pass") {
                     addPass()
                 }
+                .buttonStyle(BorderedBlueButtonStyle())
                 Spacer()
                 Button("Cancel") {
                     isPresented = false
                 }
+                .buttonStyle(BorderedBlueButtonStyle())
             }
         }
         .navigationTitle("Add New Weld Pass")

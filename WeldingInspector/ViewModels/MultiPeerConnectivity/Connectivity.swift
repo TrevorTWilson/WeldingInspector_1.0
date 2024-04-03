@@ -16,7 +16,9 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
     
     var isDiscoverable: Bool = false {
         didSet {
-            startAdvertising()
+            DispatchQueue.main.async {
+                self.startAdvertising()
+            }
         }
     }
     
@@ -30,10 +32,14 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
     @Published var recievedInvite: Bool = false
     @Published var recievedInviteFrom: MCPeerID?
     @Published var invitationHandler: ((Bool, MCSession?) -> Void)?
+    @Published var receivedWeldData: Bool = false
+    @Published var receivedProcedureData: Bool = false
     
     var weldToSend: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers?
     var procedureToSend: WeldingInspector.Job.WeldingProcedure?
     
+    var receivedWeld: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers?
+    var receivedProcedure: WeldingInspector.Job.WeldingProcedure?
 
     override init() {
            
@@ -144,11 +150,15 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
         if let receivedWeldNumbersObject = try? decoder.decode(WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers.self, from: data) {
             // Handle the received WeldNumbers object
             print("Received WeldNumbers object from \(peerID.displayName): \(receivedWeldNumbersObject)")
-            // Process the received WeldNumbers object as needed
+            receivedWeld = receivedWeldNumbersObject
+            receivedWeldData = true
+            
         } else if let receivedWeldProcedureObject = try? decoder.decode(WeldingInspector.Job.WeldingProcedure.self, from: data) {
             // Handle the received WeldingProcedure object
             print("Received WeldingProcedure object from \(peerID.displayName): \(receivedWeldProcedureObject)")
-            // Process the received WeldingProcedure object as needed
+            receivedProcedure = receivedWeldProcedureObject
+            receivedProcedureData = true
+            
         } else {
             print("Received JSON object does not match the expected types.")
             // Handle the case where the received object does not match expected types

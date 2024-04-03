@@ -123,11 +123,13 @@ struct AddWelderView: View {
                     Button(selectedWelder != nil ? "Edit Welder" : "Add Welder") {
                         addWelder()
                     }
+                    .buttonStyle(BorderedBlueButtonStyle())
                     .disabled(welderName.isEmpty)
                     Spacer()
                     Button("Cancel") {
                         isPresented = false
                     }
+                    .buttonStyle(BorderedBlueButtonStyle())
                 }
             } else {
                 Section{
@@ -160,6 +162,7 @@ struct AddWelderView: View {
                                     addWelder()
                                 }
                             }
+                            .buttonStyle(BorderedBlueButtonStyle())
                             .disabled(selectedWelderList.isEmpty)
                             .frame(width: geometry.size.width / 2 - 10)
                             
@@ -168,6 +171,7 @@ struct AddWelderView: View {
                             Button("Cancel") {
                                 isPresented = false
                             }
+                            .buttonStyle(BorderedBlueButtonStyle())
                             .frame(width: geometry.size.width / 2 - 10)
                         }
                     }

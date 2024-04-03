@@ -173,6 +173,7 @@ struct WeldingProcedureFormView: View {
                 }) {
                     Text("Save Procedure")
                 }
+                .buttonStyle(BorderedBlueButtonStyle())
                 Spacer()
                 Button(action: {
                     // Add logic to save the collected data for WeldingProcedure
@@ -180,6 +181,7 @@ struct WeldingProcedureFormView: View {
                 }) {
                     Text("Cancel")
                 }
+                .buttonStyle(BorderedBlueButtonStyle())
             }
             
         }

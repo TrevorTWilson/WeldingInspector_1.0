@@ -143,6 +143,7 @@ struct AddProcedureView: View {
                                     isAlertPresented = true
                                 }
                             }
+                            .buttonStyle(BorderedBlueButtonStyle())
                             .disabled(procedureName.isEmpty)
                             .frame(width: geometry.size.width / 2 - 10)
                             
@@ -151,6 +152,7 @@ struct AddProcedureView: View {
                             Button("Cancel") {
                                 isPresented = false
                             }
+                            .buttonStyle(BorderedBlueButtonStyle())
                             .frame(width: geometry.size.width / 2 - 10)
                         }
                     }
@@ -189,6 +191,7 @@ struct AddProcedureView: View {
                                     isAlertPresented = true
                                 }
                             }
+                            .buttonStyle(BorderedBlueButtonStyle())
                             .disabled(selectedWeldingProcedures.isEmpty)
                             .frame(width: geometry.size.width / 2 - 10)
                             
@@ -197,6 +200,7 @@ struct AddProcedureView: View {
                             Button("Cancel") {
                                 isPresented = false
                             }
+                            .buttonStyle(BorderedBlueButtonStyle())
                             .frame(width: geometry.size.width / 2 - 10)
                         }
                     }

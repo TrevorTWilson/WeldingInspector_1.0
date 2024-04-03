@@ -129,12 +129,14 @@ struct RangeSlider : View {
                     //dismiss()
                     isRangeSliderSheetPresented = false
                 }
+                .buttonStyle(BorderedBlueButtonStyle())
                 Spacer()
                 Button("Cancel") {
                     // Dismiss the view
                     //dismiss()
                     isRangeSliderSheetPresented = false
                 }
+                .buttonStyle(BorderedBlueButtonStyle())
                 Spacer()
             }
             .padding(.top, 25)

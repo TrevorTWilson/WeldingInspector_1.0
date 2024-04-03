@@ -186,6 +186,4 @@ extension MainViewModel{
             return unWrappedValue
         }
     }
-
-    
 }
