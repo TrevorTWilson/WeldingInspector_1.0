@@ -2,7 +2,7 @@
 //  AddWelderView.swift
 //  RewriteVersion4
 //
-//  Created by trevor wilson on 2024-02-15.
+//  Created by Trevor Wilson on 2024-02-15.
 //
 
 import SwiftUI
@@ -138,10 +138,10 @@ struct AddWelderView: View {
                         let items = mainViewModel.getAllWelders()
                         //let items = [:]
                         if items.isEmpty {
-                            Text("There are no Welding Procedures available on this device")
+                            Text("There are no Welders available on this device")
                                 .font(.system(size: 14))
                         } else {
-                            Text("Welding Procedures are available on this device")
+                            Text("Welders are available on this device")
                                 .font(.system(size: 14))
                             
                                 MultipleSelectionPicker(items: Array(items.keys), onSave: { selectedItems in

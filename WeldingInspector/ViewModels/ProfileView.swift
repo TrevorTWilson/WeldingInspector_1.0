@@ -2,7 +2,7 @@
 //  ProfileView.swift
 //  RewriteVersion4
 //
-//  Created by trevor wilson on 2024-03-18.
+//  Created by Trevor Wilson on 2024-03-18.
 //
 
 

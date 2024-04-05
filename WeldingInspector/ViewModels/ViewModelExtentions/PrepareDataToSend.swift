@@ -2,7 +2,7 @@
 //  PrepareDataToSend.swift
 //  WeldingInspector
 //
-//  Created by trevor wilson on 2024-04-03.
+//  Created by Trevor Wilson on 2024-04-03.
 //
 
 import Foundation
@@ -11,7 +11,7 @@ extension MainViewModel {
  
     func prepareJob (job: WeldingInspector.Job) -> WeldingInspector.Job {
         var updatedJob = job
-        for (procedureIndex, procedure) in updatedJob.weldingProcedures.enumerated(){
+        for (procedureIndex, _) in updatedJob.weldingProcedures.enumerated(){
             updatedJob.weldingProcedures[procedureIndex].weldersQualified = []
         }
         return updatedJob

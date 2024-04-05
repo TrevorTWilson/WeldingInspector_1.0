@@ -2,11 +2,10 @@
 //  Connectivity.swift
 //  WeldingInspector
 //
-//  Created by trevor wilson on 2024-03-24.
+//  Created by Trevor Wilson on 2024-03-24.
 //
 
 import Foundation
-import SwiftUI
 import MultipeerConnectivity
 
 class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegate, MCNearbyServiceAdvertiserDelegate, MCNearbyServiceBrowserDelegate {
@@ -18,7 +17,7 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
         didSet {
             DispatchQueue.main.async {
                 self.startAdvertising()
-            }
+           }
         }
     }
     
@@ -34,12 +33,14 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
     @Published var invitationHandler: ((Bool, MCSession?) -> Void)?
     @Published var receivedWeldData: Bool = false
     @Published var receivedProcedureData: Bool = false
+    @Published var receivedWelderData: Bool = false
     
     var weldToSend: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers?
     var procedureToSend: WeldingInspector.Job.WeldingProcedure?
     
     var receivedWeld: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers?
     var receivedProcedure: WeldingInspector.Job.WeldingProcedure?
+    var receivedWelder: WeldingInspector.Job.WeldingProcedure.Welder?
 
     override init() {
            
@@ -159,7 +160,13 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
             receivedProcedure = receivedWeldProcedureObject
             receivedProcedureData = true
             
-        } else {
+        } else if let receivedWelderObject = try? decoder.decode(WeldingInspector.Job.WeldingProcedure.Welder.self, from: data) {
+            // Handle the received WeldingProcedure object
+            print("Received Welder object from \(peerID.displayName): \(receivedWelderObject)")
+            receivedWelder = receivedWelderObject
+            receivedWelderData = true
+            
+        }else {
             print("Received JSON object does not match the expected types.")
             // Handle the case where the received object does not match expected types
         }

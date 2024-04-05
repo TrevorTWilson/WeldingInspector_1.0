@@ -2,7 +2,7 @@
 //  WelderView.swift
 //  RewriteVersion4
 //
-//  Created by trevor wilson on 2024-02-15.
+//  Created by Trevor Wilson on 2024-02-15.
 //
 
 import SwiftUI
@@ -22,11 +22,20 @@ struct WelderView: View {
     @State private var editWelder = false
     @State private var selectedWelder: WeldingInspector.Job.WeldingProcedure.Welder? = nil
     @State private var newInvite = false
+    @State private var newWeld = false
+    @State private var newProcedure = false
+    @State private var newWelder = false
     
     var body: some View {
         
         if newInvite {
             RecievedInvite(showRecievedInvite: $newInvite)
+        } else if newWeld {
+            ReceiveDataView(mainViewModel: mainViewModel, showReceivedData: $newWeld, newWeldData: multipeerManager.receivedWeld)
+        } else if newProcedure {
+            ReceiveDataView(mainViewModel: mainViewModel, showReceivedData: $newProcedure, newProcedureData: multipeerManager.receivedProcedure)
+        } else if newWelder {
+            ReceiveDataView(mainViewModel: mainViewModel, showReceivedData: $newWelder, newWelderData: multipeerManager.receivedWelder)
         } else {
             NavigationStack {
                 VStack {
@@ -107,24 +116,15 @@ struct WelderView: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {
-                            showProfileView = true
-                            
-                        }) {
-                            Image(systemName: "gear")
-                                .imageScale(.large)
+                        ReusableLeadingToolbarItemView {
+                            showProfileView.toggle()
                         }
                     }
+
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        HStack {
-                            Text("Discoverable")
-                                .foregroundColor(.primary)
-                            Toggle("", isOn: $multipeerManager.isDiscoverable)
-                                .toggleStyle(.switch)
-                                .labelsHidden()
-                                .accentColor(.blue) // Customize the color if needed
-                        }
+                        ReusableTrailingToolbarItemView(isDiscoverable: $multipeerManager.isDiscoverable)
                     }
+
                 }
                 .sheet(isPresented: $showProfileView) {
                     ProfileView(mainViewModel: mainViewModel, isPresented: $showProfileView)
@@ -139,6 +139,18 @@ struct WelderView: View {
                 })
                 .onChange(of: multipeerManager.recievedInvite) {
                     newInvite = multipeerManager.recievedInvite
+                }
+                .onChange(of: multipeerManager.receivedWeldData) {
+                    newWeld = multipeerManager.receivedWeldData
+                    multipeerManager.receivedWeldData = false
+                }
+                .onChange(of: multipeerManager.receivedProcedureData) {
+                    newProcedure = multipeerManager.receivedProcedureData
+                    multipeerManager.receivedProcedureData = false
+                }
+                .onChange(of: multipeerManager.receivedWelderData) {
+                    newWelder = multipeerManager.receivedWelderData
+                    multipeerManager.receivedWelderData = false
                 }
             }
         }

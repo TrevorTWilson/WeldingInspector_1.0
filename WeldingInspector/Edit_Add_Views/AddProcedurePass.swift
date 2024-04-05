@@ -2,7 +2,7 @@
 //  AddProcedurePass.swift
 //  RewriteVersion4
 //
-//  Created by trevor wilson on 2024-03-02.
+//  Created by Trevor Wilson on 2024-03-02.
 //
 
 import SwiftUI

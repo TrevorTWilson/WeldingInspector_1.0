@@ -2,7 +2,7 @@
 //  SendWeldNumbersView.swift
 //  WeldingInspector
 //
-//  Created by trevor wilson on 2024-03-25.
+//  Created by Trevor Wilson on 2024-03-25.
 //
 
 import SwiftUI

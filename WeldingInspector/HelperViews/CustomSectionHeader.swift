@@ -2,7 +2,7 @@
 //  CustomSectionHeader.swift
 //  RewriteVersion4
 //
-//  Created by trevor wilson on 2024-03-01.
+//  Created by Trevor Wilson on 2024-03-01.
 //
 
 import SwiftUI

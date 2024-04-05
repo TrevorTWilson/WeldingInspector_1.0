@@ -2,7 +2,7 @@
 //  RecievedInvite.swift
 //  WeldingInspector
 //
-//  Created by trevor wilson on 2024-03-26.
+//  Created by Trevor Wilson on 2024-03-26.
 //
 
 import SwiftUI

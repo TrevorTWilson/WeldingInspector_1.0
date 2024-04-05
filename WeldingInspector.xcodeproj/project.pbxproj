@@ -13,13 +13,14 @@
 		5BBDB6372BB0614000A3E685 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB6362BB0614000A3E685 /* Connectivity.swift */; };
 		5BBDB6392BB1CEB700A3E685 /* SendWeldDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB6382BB1CEB700A3E685 /* SendWeldDataView.swift */; };
 		5BBDB63D2BB3127300A3E685 /* RecievedInvite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDB63C2BB3127300A3E685 /* RecievedInvite.swift */; };
+		5BC215D32BC04D2C004C3BFF /* ReusableToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC215D22BC04D2C004C3BFF /* ReusableToolBar.swift */; };
 		5BCAB4742BAC6D68002A5B0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAB4732BAC6D68002A5B0B /* Assets.xcassets */; };
 		5BCAB4772BAC6D68002A5B0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAB4762BAC6D68002A5B0B /* Preview Assets.xcassets */; };
 		5BCAB4812BAC6D68002A5B0B /* WeldingInspectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4802BAC6D68002A5B0B /* WeldingInspectorTests.swift */; };
 		5BCAB48B2BAC6D68002A5B0B /* WeldingInspectorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB48A2BAC6D68002A5B0B /* WeldingInspectorUITests.swift */; };
 		5BCAB48D2BAC6D68002A5B0B /* WeldingInspectorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB48C2BAC6D68002A5B0B /* WeldingInspectorUITestsLaunchTests.swift */; };
 		5BCAB49A2BAC6DAD002A5B0B /* AppEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4992BAC6DAD002A5B0B /* AppEntryPoint.swift */; };
-		5BCAB4A22BAC6E59002A5B0B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAB4A12BAC6E59002A5B0B /* Launch Screen.storyboard */; };
+		5BCAB4A22BAC6E59002A5B0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAB4A12BAC6E59002A5B0B /* LaunchScreen.storyboard */; };
 		5BCAB4AC2BAC6EE9002A5B0B /* Seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BCAB4AB2BAC6EE8002A5B0B /* Seed.json */; };
 		5BCAB4F42BAC73FB002A5B0B /* CalculateArcSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4C62BAC73FB002A5B0B /* CalculateArcSpeed.swift */; };
 		5BCAB4F52BAC73FB002A5B0B /* TemporaryValueBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCAB4C72BAC73FB002A5B0B /* TemporaryValueBuilder.swift */; };
@@ -86,6 +87,7 @@
 		5BBDB6362BB0614000A3E685 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		5BBDB6382BB1CEB700A3E685 /* SendWeldDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendWeldDataView.swift; sourceTree = "<group>"; };
 		5BBDB63C2BB3127300A3E685 /* RecievedInvite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecievedInvite.swift; sourceTree = "<group>"; };
+		5BC215D22BC04D2C004C3BFF /* ReusableToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableToolBar.swift; sourceTree = "<group>"; };
 		5BCAB46C2BAC6D66002A5B0B /* WeldingInspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeldingInspector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BCAB4732BAC6D68002A5B0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BCAB4762BAC6D68002A5B0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -95,7 +97,7 @@
 		5BCAB48A2BAC6D68002A5B0B /* WeldingInspectorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeldingInspectorUITests.swift; sourceTree = "<group>"; };
 		5BCAB48C2BAC6D68002A5B0B /* WeldingInspectorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeldingInspectorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5BCAB4992BAC6DAD002A5B0B /* AppEntryPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEntryPoint.swift; sourceTree = "<group>"; };
-		5BCAB4A12BAC6E59002A5B0B /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		5BCAB4A12BAC6E59002A5B0B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BCAB4AB2BAC6EE8002A5B0B /* Seed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Seed.json; sourceTree = "<group>"; };
 		5BCAB4C62BAC73FB002A5B0B /* CalculateArcSpeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateArcSpeed.swift; sourceTree = "<group>"; };
 		5BCAB4C72BAC73FB002A5B0B /* TemporaryValueBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporaryValueBuilder.swift; sourceTree = "<group>"; };
@@ -199,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				5BCAB51B2BAC75BC002A5B0B /* Info.plist */,
-				5BCAB4A12BAC6E59002A5B0B /* Launch Screen.storyboard */,
+				5BCAB4A12BAC6E59002A5B0B /* LaunchScreen.storyboard */,
 				5BCAB4992BAC6DAD002A5B0B /* AppEntryPoint.swift */,
 				5BCAB4AB2BAC6EE8002A5B0B /* Seed.json */,
 				5BCAB4CB2BAC73FB002A5B0B /* NavigationViews */,
@@ -257,10 +259,10 @@
 			children = (
 				5BCAB4CD2BAC73FB002A5B0B /* MainJobView.swift */,
 				5BCAB4D02BAC73FB002A5B0B /* ProcedureView.swift */,
-				5BCAB4CC2BAC73FB002A5B0B /* PassParameterView.swift */,
 				5BCAB4CE2BAC73FB002A5B0B /* WelderView.swift */,
 				5BCAB4D12BAC73FB002A5B0B /* WeldNumberView.swift */,
 				5BCAB4CF2BAC73FB002A5B0B /* WeldPassView.swift */,
+				5BCAB4CC2BAC73FB002A5B0B /* PassParameterView.swift */,
 			);
 			path = NavigationViews;
 			sourceTree = "<group>";
@@ -335,6 +337,7 @@
 				5BCAB4F22BAC73FB002A5B0B /* KeyValueRow.swift */,
 				5BCAB4F32BAC73FB002A5B0B /* RoundStopwatchView.swift */,
 				5B7AF5352BBD97A200448C0A /* ButtonStyles.swift */,
+				5BC215D22BC04D2C004C3BFF /* ReusableToolBar.swift */,
 			);
 			path = HelperViews;
 			sourceTree = "<group>";
@@ -443,7 +446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BCAB4A22BAC6E59002A5B0B /* Launch Screen.storyboard in Resources */,
+				5BCAB4A22BAC6E59002A5B0B /* LaunchScreen.storyboard in Resources */,
 				5BCAB4772BAC6D68002A5B0B /* Preview Assets.xcassets in Resources */,
 				5BCAB4742BAC6D68002A5B0B /* Assets.xcassets in Resources */,
 				5BCAB4AC2BAC6EE9002A5B0B /* Seed.json in Resources */,
@@ -495,6 +498,7 @@
 				5BCAB4FC2BAC73FB002A5B0B /* WeldPassView.swift in Sources */,
 				5BCAB5102BAC73FB002A5B0B /* CollectParametersView.swift in Sources */,
 				5BCAB5072BAC73FB002A5B0B /* DidSetItems.swift in Sources */,
+				5BC215D32BC04D2C004C3BFF /* ReusableToolBar.swift in Sources */,
 				5BCAB4FB2BAC73FB002A5B0B /* WelderView.swift in Sources */,
 				5BCAB5182BAC73FC002A5B0B /* MultiSelectView.swift in Sources */,
 				5BCAB5152BAC73FC002A5B0B /* circleSlider VC.swift in Sources */,
@@ -690,7 +694,7 @@
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Would like to send a weld";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -724,7 +728,7 @@
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Would like to send a weld";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

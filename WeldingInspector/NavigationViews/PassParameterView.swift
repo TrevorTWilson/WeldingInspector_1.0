@@ -2,7 +2,7 @@
 //  PassParameterView.swift
 //  RewriteVersion4
 //
-//  Created by trevor wilson on 2024-02-22.
+//  Created by Trevor Wilson on 2024-02-22.
 //
 
 import SwiftUI
@@ -18,11 +18,20 @@ struct PassParameterView: View {
     @State private var addWeldParameters = false
     @State private var isExpanded = false
     @State private var newInvite = false
+    @State private var newWeld = false
+    @State private var newProcedure = false
+    @State private var newWelder = false
     
     var body: some View {
         
         if newInvite {
             RecievedInvite(showRecievedInvite: $newInvite)
+        } else if newWeld {
+            ReceiveDataView(mainViewModel: mainViewModel, showReceivedData: $newWeld, newWeldData: multipeerManager.receivedWeld)
+        } else if newProcedure {
+            ReceiveDataView(mainViewModel: mainViewModel, showReceivedData: $newProcedure, newProcedureData: multipeerManager.receivedProcedure)
+        } else if newWelder {
+            ReceiveDataView(mainViewModel: mainViewModel, showReceivedData: $newWelder, newWelderData: multipeerManager.receivedWelder)
         } else {
             NavigationStack {
                 VStack {
@@ -78,18 +87,23 @@ struct PassParameterView: View {
                 })
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        HStack {
-                            Text("Discoverable")
-                                .foregroundColor(.primary)
-                            Toggle("", isOn: $multipeerManager.isDiscoverable)
-                                .toggleStyle(.switch)
-                                .labelsHidden()
-                                .accentColor(.blue) // Customize the color if needed
-                        }
+                        ReusableTrailingToolbarItemView(isDiscoverable: $multipeerManager.isDiscoverable)
                     }
                 }
                 .onChange(of: multipeerManager.recievedInvite) {
                     newInvite = multipeerManager.recievedInvite
+                }
+                .onChange(of: multipeerManager.receivedWeldData) {
+                    newWeld = multipeerManager.receivedWeldData
+                    multipeerManager.receivedWeldData = false
+                }
+                .onChange(of: multipeerManager.receivedProcedureData) {
+                    newProcedure = multipeerManager.receivedProcedureData
+                    multipeerManager.receivedProcedureData = false
+                }
+                .onChange(of: multipeerManager.receivedWelderData) {
+                    newWelder = multipeerManager.receivedWelderData
+                    multipeerManager.receivedWelderData = false
                 }
             }
         }

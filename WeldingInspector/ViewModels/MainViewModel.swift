@@ -2,7 +2,7 @@
 //  MainViewModel.swift
 //  RewriteVersion4
 //
-//  Created by trevor wilson on 2024-02-13.
+//  Created by Trevor Wilson on 2024-02-13.
 //
 
 import Foundation

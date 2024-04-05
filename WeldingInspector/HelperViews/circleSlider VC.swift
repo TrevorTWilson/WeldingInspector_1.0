@@ -2,7 +2,7 @@
 //  circleSlider VC.swift
 //  circleSlider
 //
-//  Created by trevor wilson on 2024-01-20.
+//  Created by Trevor Wilson on 2024-01-20.
 //
 
 //

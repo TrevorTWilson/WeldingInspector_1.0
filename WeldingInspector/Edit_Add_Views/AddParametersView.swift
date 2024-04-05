@@ -2,7 +2,7 @@
 //  AddParametersView.swift
 //  RewriteVersion4
 //
-//  Created by trevor wilson on 2024-02-15.
+//  Created by Trevor Wilson on 2024-02-15.
 //
 
 import SwiftUI
@@ -71,7 +71,13 @@ struct AddParametersView: View {
     
     var body: some View {
         Form {
-            Section(header: Text("\(sectionTitle) Weld Pass")) {
+            Section(header: Text("\(sectionTitle) Weld Pass")){
+                Text("Enter Pass Name to \(sectionTitle) ")
+                TextField("\(sectionTitle) Pass Name Here", text: $passName)
+            }
+            
+            Section(header: Text("\(sectionTitle) Procedure Range Weld Pass")) {
+                Text("Select Procedure Pass Range")
                 Picker("Select Pass For Ranges", selection: $procedurePass) {
                     ForEach(weldPassList) { pass in
                         Text(pass.passName).tag(pass)
@@ -79,11 +85,6 @@ struct AddParametersView: View {
                 }
             }
             .pickerStyle(.segmented)
-            
-            Section(header: Text("\(sectionTitle) Weld Pass")){
-                Text("\(sectionTitle) Pass Name")
-                TextField("\(sectionTitle) Pass Name Here", text: $passName)
-            }
             
             GeometryReader { geometry in
                 HStack{

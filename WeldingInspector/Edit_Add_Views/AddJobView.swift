@@ -2,7 +2,7 @@
 //  AddJobView.swift
 //  RewriteVersion4
 //
-//  Created by trevor wilson on 2024-02-15.
+//  Created by Trevor Wilson on 2024-02-15.
 //
 
 import SwiftUI
@@ -17,7 +17,6 @@ struct AddJobView: View {
     @State private var addProcedures: [WeldingInspector.Job.WeldingProcedure]?
     @State private var selectedWeldingProcedures: [WeldingInspector.Job.WeldingProcedure] = []
     @State private var proceduresAvailableLabel: String = ""
-    @State private var isExpanded: Bool = false
     @State private var isAlertPresented = false
     
     @Binding var isPresented: Bool
@@ -71,31 +70,32 @@ struct AddJobView: View {
                     Text("Procedures linked to \(jobName)")
                 }
             }
-            HStack{
-                GeometryReader { geometry in
-                    HStack {
-                        Button("Add Job") {
-                            if jobName != "" {
-                                addJob()
-                            } else {
-                                isAlertPresented = true
+            
+            VStack{
+                    GeometryReader { geometry in
+                        HStack {
+                            Button("Add Job") {
+                                if jobName != "" {
+                                    addJob()
+                                } else {
+                                    isAlertPresented = true
+                                }
                             }
+                            .disabled(jobName.isEmpty)
+                            .buttonStyle(BorderedBlueButtonStyle())
+                            .frame(width: geometry.size.width / 2 - 10)
+                            
+                            Spacer()
+                            
+                            Button("Cancel") {
+                                isPresented = false
+                            }
+                            .buttonStyle(BorderedBlueButtonStyle())
+                            .frame(width: geometry.size.width / 2 - 10)
                         }
-                        .disabled(jobName.isEmpty)
-                        .buttonStyle(BorderedBlueButtonStyle())
-                        .frame(width: geometry.size.width / 2 - 10)
-                        
-                        Spacer()
-                        
-                        Button("Cancel") {
-                            isPresented = false
-                        }
-                        .buttonStyle(BorderedBlueButtonStyle())
-                        .frame(width: geometry.size.width / 2 - 10)
                     }
+                    .padding(.horizontal, 20)
                 }
-                .padding(.horizontal, 20)
-            }
         }
         .navigationTitle("Add New Job Item")
         .alert(isPresented: $isAlertPresented) {

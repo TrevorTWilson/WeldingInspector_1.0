@@ -7,5 +7,7 @@
 		<string>_Send-Weld._tcp</string>
 		<string>_Send-Weld._udp</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict/>
 </dict>
 </plist>

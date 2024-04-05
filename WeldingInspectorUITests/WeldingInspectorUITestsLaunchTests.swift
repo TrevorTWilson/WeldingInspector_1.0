@@ -2,7 +2,7 @@
 //  WeldingInspectorUITestsLaunchTests.swift
 //  WeldingInspectorUITests
 //
-//  Created by trevor wilson on 2024-03-21.
+//  Created by Trevor Wilson on 2024-03-21.
 //
 
 import XCTest

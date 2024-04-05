@@ -2,7 +2,7 @@
 //  RewriteVersion4App.swift
 //  RewriteVersion4
 //
-//  Created by trevor wilson on 2024-02-03.
+//  Created by Trevor Wilson on 2024-02-03.
 //
 
 import SwiftUI

@@ -2,7 +2,7 @@
 //  MainMenu.swift
 //  RewriteVersion4
 //
-//  Created by trevor wilson on 2024-02-03.
+//  Created by Trevor Wilson on 2024-02-03.
 //
 
 import SwiftUI
@@ -17,6 +17,7 @@ struct MainJobView: View {
     @State private var newInvite = false
     @State private var newWeld = false
     @State private var newProcedure = false
+    @State private var newWelder = false
     
     var body: some View {
         
@@ -26,6 +27,8 @@ struct MainJobView: View {
             ReceiveDataView(mainViewModel: mainViewModel, showReceivedData: $newWeld, newWeldData: multipeerManager.receivedWeld)
         } else if newProcedure {
             ReceiveDataView(mainViewModel: mainViewModel, showReceivedData: $newProcedure, newProcedureData: multipeerManager.receivedProcedure)
+        } else if newWelder {
+            ReceiveDataView(mainViewModel: mainViewModel, showReceivedData: $newWelder, newWelderData: multipeerManager.receivedWelder)
         } else {
             
             NavigationStack {
@@ -43,7 +46,6 @@ struct MainJobView: View {
                         }
                     }
                     Spacer()
-                    // Iterate through list of jobs in instance of WeldingInspector for navigation list of each
                     List {
                         ForEach(Array(mainViewModel.weldingInspector.jobs.enumerated()), id: \.element.id) { index, job in
                             NavigationLink(destination: ProcedureView(selectedJob: job)) {
@@ -74,24 +76,15 @@ struct MainJobView: View {
                 .navigationTitle("Main Menu")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {
-                            showProfileView = true
-                            
-                        }) {
-                            Image(systemName: "gear")
-                                .imageScale(.large)
+                        ReusableLeadingToolbarItemView {
+                            showProfileView.toggle()
                         }
                     }
+
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        HStack {
-                            Text("Discoverable")
-                                .foregroundColor(.primary)
-                            Toggle("", isOn: $multipeerManager.isDiscoverable)
-                                .toggleStyle(.switch)
-                                .labelsHidden()
-                                .accentColor(.blue) // Customize the color if needed
-                        }
+                        ReusableTrailingToolbarItemView(isDiscoverable: $multipeerManager.isDiscoverable)
                     }
+
                 }
                 .alert(item: $selectedItemForDeletion) { job in
                     Alert(
@@ -117,11 +110,15 @@ struct MainJobView: View {
                 }
                 .onChange(of: multipeerManager.receivedWeldData) {
                     newWeld = multipeerManager.receivedWeldData
+                    multipeerManager.receivedWeldData = false
                 }
                 .onChange(of: multipeerManager.receivedProcedureData) {
                     newProcedure = multipeerManager.receivedProcedureData
-                    
                     multipeerManager.receivedProcedureData = false
+                }
+                .onChange(of: multipeerManager.receivedWelderData) {
+                    newWelder = multipeerManager.receivedWelderData
+                    multipeerManager.receivedWelderData = false
                 }
             }
         }
@@ -133,11 +130,11 @@ struct MainJobView_Previews: PreviewProvider {
     static var previews: some View {
         let mockMainViewModel = MainViewModel()
         let mockConnectionManager = MultipeerConnectivityManager()
-        //mockMainViewModel.weldingInspector = loadSample() // Initialize with default data or mock data
         
         return MainJobView()
             .environmentObject(mockMainViewModel)
             .environmentObject(mockConnectionManager)
     }
 }
+
 

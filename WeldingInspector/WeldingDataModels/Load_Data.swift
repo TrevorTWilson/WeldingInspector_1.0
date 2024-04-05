@@ -2,7 +2,7 @@
 //  Load_Data.swift
 //  Create_Json_Seed_File
 //
-//  Created by trevor wilson on 2024-02-02.
+//  Created by Trevor Wilson on 2024-02-02.
 //
 import Foundation
 
