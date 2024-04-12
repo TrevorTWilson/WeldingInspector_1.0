@@ -19,6 +19,9 @@ class StorageFunctions {
         var url = backupURL
         if !fileManager.fileExists(atPath: backupURL.path){
             url = bundleUrl
+            print("Bundle Seed File")
+        } else {
+            print("Backup File")
         }
         let decoder = JSONDecoder()
         guard let data = try? Data(contentsOf: url) else {

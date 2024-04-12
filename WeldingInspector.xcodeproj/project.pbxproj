@@ -105,7 +105,7 @@
 		5BCAB4C92BAC73FB002A5B0B /* CalculateHeatInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateHeatInput.swift; sourceTree = "<group>"; };
 		5BCAB4CA2BAC73FB002A5B0B /* HandleKeyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandleKeyAction.swift; sourceTree = "<group>"; };
 		5BCAB4CC2BAC73FB002A5B0B /* PassParameterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassParameterView.swift; sourceTree = "<group>"; };
-		5BCAB4CD2BAC73FB002A5B0B /* MainJobView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainJobView.swift; sourceTree = "<group>"; };
+		5BCAB4CD2BAC73FB002A5B0B /* MainJobView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainJobView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5BCAB4CE2BAC73FB002A5B0B /* WelderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelderView.swift; sourceTree = "<group>"; };
 		5BCAB4CF2BAC73FB002A5B0B /* WeldPassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeldPassView.swift; sourceTree = "<group>"; };
 		5BCAB4D02BAC73FB002A5B0B /* ProcedureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcedureView.swift; sourceTree = "<group>"; };
