@@ -18,6 +18,7 @@ struct AddJobView: View {
     @State private var selectedWeldingProcedures: [WeldingInspector.Job.WeldingProcedure] = []
     @State private var proceduresAvailableLabel: String = ""
     @State private var isAlertPresented = false
+    @State private var isProcedurePopOverVisable: Bool = false
     
     @Binding var isPresented: Bool
     
@@ -42,7 +43,7 @@ struct AddJobView: View {
                         }
                     }
             }
-            Section{
+            Section(header: SectionHeaderView(title: "Add Procedures", isPopoverVisible: $isProcedurePopOverVisable, message: "Procedure")){
                 VStack {
                     let items = mainViewModel.getAllWeldingProcedure()
                     //let items = [:]

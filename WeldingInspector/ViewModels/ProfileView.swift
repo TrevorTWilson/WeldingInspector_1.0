@@ -37,26 +37,9 @@ struct ProfileView: View {
         VStack {
             Spacer()
             HStack {
-                Image(systemName: "info.circle.fill")
-                    .foregroundColor(.blue)
-                    .onTapGesture {
-                        print("Quick help icon tapped!")
-                        isNamePopOverVisable.toggle()
-                    }
-                    .popover(isPresented: $isNamePopOverVisable, attachmentAnchor: .point(.top), arrowEdge: .top)  {
-                                Text("This Name will be used when connecting to nearby users when transmitting or receiving weld or welding procedure data")
-                                    .padding()
-                                    .background(Color.blue.opacity(0.1))
-                                    .cornerRadius(10)
-                                    .foregroundColor(.black)
-                                    .fixedSize(horizontal: false, vertical: true)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.blue, lineWidth: 2)
-                                    )
-                                    .presentationCompactAdaptation((.popover))
-                            }
-                            .padding()
+                HelpIconView(isPopoverVisible: $isNamePopOverVisable, messageKey: "Name")
+                    .previewLayout(.sizeThatFits)
+                    .padding()
                 Text("Current User Name is set to:")
             }
             
@@ -102,33 +85,16 @@ struct ProfileView: View {
             .pickerStyle(SegmentedPickerStyle())
             
             HStack {
-                Image(systemName: "info.circle.fill")
-                    .foregroundColor(.blue)
-                    .onTapGesture {
-                        print("Quick help icon tapped!")
-                        isMetricPopOverVisable.toggle()
-                    }
-                    .popover(isPresented: $isMetricPopOverVisable, attachmentAnchor: .point(.top), arrowEdge: .top)  {
-                                Text("This will convert the entire database to the selected units.  Verify the data after it has been converted")
-                                    .padding()
-                                    .background(Color.blue.opacity(0.1))
-                                    .cornerRadius(10)
-                                    .foregroundColor(.black)
-                                    .fixedSize(horizontal: false, vertical: true)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.blue, lineWidth: 2)
-                                    )
-                                    .presentationCompactAdaptation((.popover))
-                            }
-                            .padding()
+                HelpIconView(isPopoverVisible: $isMetricPopOverVisable, messageKey: "Conversion")
+                    .previewLayout(.sizeThatFits)
+                    .padding()
                 Text("Selected System: \(mainViewModel.weldingInspector.isMetric ? "Metric" : "Imperial")")
             }
             Button("Convert Units") {
                 if mainViewModel.weldingInspector.isMetric != lastSelection {
                     print("Selection changed from \(lastSelection) to \(mainViewModel.weldingInspector.isMetric)")
                     mainViewModel.convertDataModel()
-                } 
+                }
             }
             .buttonStyle(BorderedBlueButtonStyle())
             .padding()
@@ -151,8 +117,8 @@ struct ProfileView: View {
         
     }
     
-
-
+    
+    
 }
 
 struct ProfileView_Previews: PreviewProvider {

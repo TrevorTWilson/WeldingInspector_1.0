@@ -10,6 +10,7 @@ import SwiftUI
 import SwiftUI
 
 struct ReusableTrailingToolbarItemView: View {
+    @State private var isDiscoverPopOverVisable: Bool = false
     @Binding var isDiscoverable: Bool
     
     var body: some View {
@@ -20,6 +21,8 @@ struct ReusableTrailingToolbarItemView: View {
             Toggle("", isOn: $isDiscoverable)
                 .toggleStyle(SwitchToggleStyle(tint: .green))
                 .labelsHidden()
+            HelpIconView(isPopoverVisible: $isDiscoverPopOverVisable, messageKey: "Discoverable")
+                .previewLayout(.sizeThatFits)
         }
     }
 }

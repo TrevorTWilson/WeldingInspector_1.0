@@ -15,6 +15,7 @@ struct AddParametersView: View {
     @State private var procedurePass: WeldingInspector.Job.WeldingProcedure.WeldPass
     @Binding var isPresented: Bool
     @State private var selectedPassIndex: Int?
+    @State private var isPassRangePopOverVisable: Bool = false
     
     var weldPassList: [WeldingInspector.Job.WeldingProcedure.WeldPass] {
         if let weldingProcedure = mainViewModel.selectedWeldingProcedure {
@@ -71,8 +72,13 @@ struct AddParametersView: View {
     
     var body: some View {
         Form {
+                  
             Section(header: Text("\(sectionTitle) Weld Pass")){
-                Text("Enter Pass Name to \(sectionTitle) ")
+                HStack{
+                    Text("Enter Pass Name to \(sectionTitle) ")
+                    HelpIconView(isPopoverVisible: $isPassRangePopOverVisable, messageKey: "PassRange")
+                        .previewLayout(.sizeThatFits)
+                }
                 TextField("\(sectionTitle) Pass Name Here", text: $passName)
             }
             

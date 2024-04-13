@@ -21,6 +21,7 @@ struct AddWelderView: View {
     
     @State private var singleWelder = true
     @State private var isAlertPresented = false
+    @State private var isWelderPopOverVisable: Bool = false
     
     public init(mainViewModel: MainViewModel, isPresented: Binding<Bool>, selectedWelder: WeldingInspector.Job.WeldingProcedure.Welder? = nil) {
         self.mainViewModel = mainViewModel
@@ -132,7 +133,7 @@ struct AddWelderView: View {
                     .buttonStyle(BorderedBlueButtonStyle())
                 }
             } else {
-                Section{
+                Section(header: SectionHeaderView(title: "Add Welders", isPopoverVisible: $isWelderPopOverVisable, message: "Welder")){
                     Text("Select from List")
                     VStack {
                         let items = mainViewModel.getAllWelders()
@@ -157,7 +158,7 @@ struct AddWelderView: View {
                 HStack{
                     GeometryReader { geometry in
                         HStack {
-                            Button("Add Procedure") {
+                            Button("Add Welders") {
                                 if selectedWelderList != [] {
                                     addWelder()
                                 }

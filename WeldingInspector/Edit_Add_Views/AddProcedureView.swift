@@ -20,6 +20,8 @@ struct AddProcedureView: View {
     @State private var weldersAvailableLabel: String = ""
     @State private var isAlertPresented = false
     @State private var singleProcedure = true
+    @State private var isProcedurePopOverVisable: Bool = false
+    @State private var isWelderPopOverVisable: Bool = false
     
     
     init(mainViewModel: MainViewModel, isPresented: Binding<Bool>) {
@@ -87,7 +89,7 @@ struct AddProcedureView: View {
             .frame(height: 50)
             
             if singleProcedure {
-                Section{
+                Section(header: SectionHeaderView(title: "Add Welders", isPopoverVisible: $isWelderPopOverVisable, message: "Welder")){
                     Text("Enter The Procedure Name")
                     TextField("Procedure Name", text: $procedureName)
                         .onSubmit {
@@ -158,7 +160,7 @@ struct AddProcedureView: View {
                     .padding(.horizontal, 10)
                 }
             } else {
-                Section{
+                Section(header: SectionHeaderView(title: "Add Procedures", isPopoverVisible: $isProcedurePopOverVisable, message: "Procedure")){
                     Text("Select from List")
                     VStack {
                         let items = mainViewModel.getAllWeldingProcedure()

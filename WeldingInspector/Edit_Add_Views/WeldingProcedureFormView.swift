@@ -21,6 +21,7 @@ struct WeldingProcedureFormView: View {
     @State private var selectedInitialMin: Double = 0.0 //Store initial min Value
     @State private var selectedInitialMax: Double = 0.0 // Store initial max Value
     @State private var selectedResolution: Double = 0.0 // store rangeslider resolution
+    @State private var isRangePopOverVisable: Bool = false
     
     @State  var procedureName = ""
     
@@ -70,120 +71,125 @@ struct WeldingProcedureFormView: View {
         }
         
         _procedureWeldPass = State(initialValue: selectedWeldingProcedure?.weldPass ?? [])
+        print(UIScreen.main.bounds.width)
     }
     
     
     var body: some View {
-        Form {
-            Section(header: Text("Procedure Details")) {
-                TextField("Procedure Name", text: $procedureName)
-                
-                Picker("Procedure Type", selection: $selectedProcedureType) {
-                    ForEach(procedureTypesList.indices, id: \.self) { index in
-                        Text(procedureTypesList[index])
-                    }
-                }
-                
-                Picker("Procedure Use", selection: $selectedProcedureUse) {
-                    ForEach(procedureUseList.indices, id: \.self) { index in
-                        Text(procedureUseList[index])
-                    }
-                }
-                Picker("Procedure Owner", selection: $selectedProcedureOwner) {
-                    ForEach(procedureOwnerList.indices, id: \.self) { index in
-                        Text(procedureOwnerList[index])
-                    }
-                }
-            }
-            
-            Section(header: CustomSectionHeader(sectionLabel: "Weld Passes", action: {
-                addNewPass.toggle()
-            })) {
-                ScrollView(.vertical) {
-                    LazyVStack{
-                        if let passList = selectedWeldingProcedure?.weldPass, !passList.isEmpty {
-                            
-                            ForEach(Array(passList.enumerated()), id: \.element.id) { index, pass in
-                                
-                                HStack {
-                                    Text(pass.passName)
-                                        .frame(width: 60, height: 60)
-                                        .onTapGesture{
-                                            selectedItemForDeletion = mainViewModel.selectedWeldingProcedure?.weldPass[index]
-                                        } 
-                                    HStack(spacing: 5) {
-                                        // Update the button actions to handle each key individually
-                                        ForEach(orderedKeys, id: \.self) { key in
-                                            // Call to handleKeyAction in WeldingProcedureFormView
-                                            handleKeyAction(for: key, pass: pass, mainViewModel: mainViewModel, updateKeyValues: { updatedKey, updatedDescriptor, updatedMinRange, updatedMaxRange, updatedInitialMin, updatedInitialMax, updatedResolution in
-                                                self.selectedKey = updatedKey
-                                                self.selectedDescriptor = updatedDescriptor
-                                                self.selectedMinRange = updatedMinRange
-                                                self.selectedMaxRange = updatedMaxRange
-                                                self.selectedInitialMin = updatedInitialMin
-                                                self.selectedInitialMax = updatedInitialMax
-                                                self.selectedResolution = updatedResolution
-                                            }, isRangeSliderSheetPresented: $isRangeSliderSheetPresented)
-                                        }
-                                    }
-                                }
-                               
+        ZStack{
+            VStack{
+                Form {
+                    Section(header: SectionHeaderView(title: "Procedure Details", isPopoverVisible: $isRangePopOverVisable, message: "Range")) {
+                        TextField("Procedure Name", text: $procedureName)
+                        
+                        Picker("Procedure Type", selection: $selectedProcedureType) {
+                            ForEach(procedureTypesList.indices, id: \.self) { index in
+                                Text(procedureTypesList[index])
                             }
-                        } else {
-                            Text("No welding passes available")
-                            Text("Add welding passes to the selected procedure")
+                        }
+                        
+                        Picker("Procedure Use", selection: $selectedProcedureUse) {
+                            ForEach(procedureUseList.indices, id: \.self) { index in
+                                Text(procedureUseList[index])
+                            }
+                        }
+                        Picker("Procedure Owner", selection: $selectedProcedureOwner) {
+                            ForEach(procedureOwnerList.indices, id: \.self) { index in
+                                Text(procedureOwnerList[index])
+                            }
                         }
                     }
                     
-                    .alert(item: $selectedItemForDeletion) { passRemove in
-                        Alert(
-                            title: Text("Delete \(passRemove.passName) Weld Pass"),
-                            message: Text("Are you sure you want to delete \(passRemove.passName)? This action cannot be undone."),
-                            primaryButton: .destructive(Text("Delete")) {
-                                if let index = mainViewModel.selectedWeldingProcedure?.weldPass.firstIndex(where: { $0.id == passRemove.id }) {
-                                    print("Alert Index: \(index)")
-                                    mainViewModel.deleteSelectedProcedurePass(index: index)
+                    Section(header: CustomSectionHeader(sectionLabel: "Weld Passes", action: {
+                        addNewPass.toggle()
+                    })) {
+                        ScrollView(.vertical) {
+                            LazyVStack{
+                                if let passList = selectedWeldingProcedure?.weldPass, !passList.isEmpty {
+                                    
+                                    ForEach(Array(passList.enumerated()), id: \.element.id) { index, pass in
+                                        
+                                        HStack {
+                                            Text(pass.passName)
+                                                .frame(width: 60, height: 60)
+                                                .onTapGesture{
+                                                    selectedItemForDeletion = mainViewModel.selectedWeldingProcedure?.weldPass[index]
+                                                }
+                                            HStack(spacing: 5) {
+                                                // Update the button actions to handle each key individually
+                                                ForEach(orderedKeys, id: \.self) { key in
+                                                    // Call to handleKeyAction in WeldingProcedureFormView
+                                                    handleKeyAction(for: key, pass: pass, mainViewModel: mainViewModel, updateKeyValues: { updatedKey, updatedDescriptor, updatedMinRange, updatedMaxRange, updatedInitialMin, updatedInitialMax, updatedResolution in
+                                                        self.selectedKey = updatedKey
+                                                        self.selectedDescriptor = updatedDescriptor
+                                                        self.selectedMinRange = updatedMinRange
+                                                        self.selectedMaxRange = updatedMaxRange
+                                                        self.selectedInitialMin = updatedInitialMin
+                                                        self.selectedInitialMax = updatedInitialMax
+                                                        self.selectedResolution = updatedResolution
+                                                    }, isRangeSliderSheetPresented: $isRangeSliderSheetPresented)
+                                                }
+                                            }
+                                        }
+                                        
+                                    }
+                                } else {
+                                    Text("No welding passes available")
+                                    Text("Add welding passes to the selected procedure")
                                 }
-                            },
-                            secondaryButton: .cancel()
-                        )
+                            }
+                            
+                            .alert(item: $selectedItemForDeletion) { passRemove in
+                                Alert(
+                                    title: Text("Delete \(passRemove.passName) Weld Pass"),
+                                    message: Text("Are you sure you want to delete \(passRemove.passName)? This action cannot be undone."),
+                                    primaryButton: .destructive(Text("Delete")) {
+                                        if let index = mainViewModel.selectedWeldingProcedure?.weldPass.firstIndex(where: { $0.id == passRemove.id }) {
+                                            print("Alert Index: \(index)")
+                                            mainViewModel.deleteSelectedProcedurePass(index: index)
+                                        }
+                                    },
+                                    secondaryButton: .cancel()
+                                )
+                            }
+                        }
+                        .scrollIndicatorsFlash(onAppear: true)
+                        .frame(maxHeight: 220) // Set a maximum height for the scrollable
                     }
-                }
-                .scrollIndicatorsFlash(onAppear: true)
-                .frame(maxHeight: 220) // Set a maximum height for the scrollable
-            }
-            VStack {
-                HStack {
-                    Text("Tap on Pass Name to delete pass")
-                        .foregroundColor(Color.gray)
-                }
-            }
-            Spacer()
-            HStack{
-                Button(action: {
-                    // Add logic to save the collected data for WeldingProcedure
-                    let updatedProcedureName = procedureName
-                    let updatedProcedureType = procedureTypesList[selectedProcedureType]
-                    let updatedProcedureUse = procedureUseList[selectedProcedureUse]
-                    let updatedProcedureOwner = procedureOwnerList[selectedProcedureOwner]
+                    VStack {
+                        HStack {
+                            Text("Tap on Pass Name to delete pass")
+                                .foregroundColor(Color.gray)
+                        }
+                    }
+                    Spacer()
+                    HStack{
+                        Button(action: {
+                            // Add logic to save the collected data for WeldingProcedure
+                            let updatedProcedureName = procedureName
+                            let updatedProcedureType = procedureTypesList[selectedProcedureType]
+                            let updatedProcedureUse = procedureUseList[selectedProcedureUse]
+                            let updatedProcedureOwner = procedureOwnerList[selectedProcedureOwner]
+                            
+                            mainViewModel.updateProcedure(newName: updatedProcedureName, newType: updatedProcedureType, newUse: updatedProcedureUse, newOwner: updatedProcedureOwner)
+                            
+                            isPresented = false
+                        }) {
+                            Text("Save Procedure")
+                        }
+                        .buttonStyle(BorderedBlueButtonStyle())
+                        Spacer()
+                        Button(action: {
+                            // Add logic to save the collected data for WeldingProcedure
+                            isPresented = false
+                        }) {
+                            Text("Cancel")
+                        }
+                        .buttonStyle(BorderedBlueButtonStyle())
+                    }
                     
-                    mainViewModel.updateProcedure(newName: updatedProcedureName, newType: updatedProcedureType, newUse: updatedProcedureUse, newOwner: updatedProcedureOwner)
-                    
-                    isPresented = false
-                }) {
-                    Text("Save Procedure")
                 }
-                .buttonStyle(BorderedBlueButtonStyle())
-                Spacer()
-                Button(action: {
-                    // Add logic to save the collected data for WeldingProcedure
-                    isPresented = false
-                }) {
-                    Text("Cancel")
-                }
-                .buttonStyle(BorderedBlueButtonStyle())
             }
-            
         }
         .navigationTitle("Add Welding Procedure")
         

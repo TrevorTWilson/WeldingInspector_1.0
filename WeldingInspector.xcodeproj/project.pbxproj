@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B44C9DB2BCAD95E008BD1D6 /* HelpIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44C9DA2BCAD95E008BD1D6 /* HelpIconView.swift */; };
+		5B44C9DD2BCADC77008BD1D6 /* HelpTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44C9DC2BCADC77008BD1D6 /* HelpTexts.swift */; };
+		5B44C9DF2BCAED04008BD1D6 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44C9DE2BCAED04008BD1D6 /* SectionHeaderView.swift */; };
 		5B7AF5362BBD97A200448C0A /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7AF5352BBD97A200448C0A /* ButtonStyles.swift */; };
 		5B7AF5382BBDA1D500448C0A /* PrepareDataToSend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7AF5372BBDA1D500448C0A /* PrepareDataToSend.swift */; };
 		5B9E71A62BBAFF70000A3EB2 /* ReceiveDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E71A52BBAFF70000A3EB2 /* ReceiveDataView.swift */; };
@@ -81,6 +84,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B44C9DA2BCAD95E008BD1D6 /* HelpIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIconView.swift; sourceTree = "<group>"; };
+		5B44C9DC2BCADC77008BD1D6 /* HelpTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpTexts.swift; sourceTree = "<group>"; };
+		5B44C9DE2BCAED04008BD1D6 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		5B7AF5352BBD97A200448C0A /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		5B7AF5372BBDA1D500448C0A /* PrepareDataToSend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareDataToSend.swift; sourceTree = "<group>"; };
 		5B9E71A52BBAFF70000A3EB2 /* ReceiveDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveDataView.swift; sourceTree = "<group>"; };
@@ -250,6 +256,7 @@
 				5BCAB4C82BAC73FB002A5B0B /* SetTempValues.swift */,
 				5BCAB4C92BAC73FB002A5B0B /* CalculateHeatInput.swift */,
 				5BCAB4CA2BAC73FB002A5B0B /* HandleKeyAction.swift */,
+				5B44C9DC2BCADC77008BD1D6 /* HelpTexts.swift */,
 			);
 			path = HelperFunctions;
 			sourceTree = "<group>";
@@ -338,6 +345,8 @@
 				5BCAB4F32BAC73FB002A5B0B /* RoundStopwatchView.swift */,
 				5B7AF5352BBD97A200448C0A /* ButtonStyles.swift */,
 				5BC215D22BC04D2C004C3BFF /* ReusableToolBar.swift */,
+				5B44C9DA2BCAD95E008BD1D6 /* HelpIconView.swift */,
+				5B44C9DE2BCAED04008BD1D6 /* SectionHeaderView.swift */,
 			);
 			path = HelperViews;
 			sourceTree = "<group>";
@@ -498,6 +507,7 @@
 				5BCAB4FC2BAC73FB002A5B0B /* WeldPassView.swift in Sources */,
 				5BCAB5102BAC73FB002A5B0B /* CollectParametersView.swift in Sources */,
 				5BCAB5072BAC73FB002A5B0B /* DidSetItems.swift in Sources */,
+				5B44C9DD2BCADC77008BD1D6 /* HelpTexts.swift in Sources */,
 				5BC215D32BC04D2C004C3BFF /* ReusableToolBar.swift in Sources */,
 				5BCAB4FB2BAC73FB002A5B0B /* WelderView.swift in Sources */,
 				5BCAB5182BAC73FC002A5B0B /* MultiSelectView.swift in Sources */,
@@ -516,9 +526,11 @@
 				5BCAB4F82BAC73FB002A5B0B /* HandleKeyAction.swift in Sources */,
 				5BCAB5012BAC73FB002A5B0B /* DataStorage.swift in Sources */,
 				5BCAB4FD2BAC73FB002A5B0B /* ProcedureView.swift in Sources */,
+				5B44C9DB2BCAD95E008BD1D6 /* HelpIconView.swift in Sources */,
 				5BCAB4FA2BAC73FB002A5B0B /* MainJobView.swift in Sources */,
 				5BCAB50F2BAC73FB002A5B0B /* AddWeldNumberView.swift in Sources */,
 				5BCAB5052BAC73FB002A5B0B /* FunctionsToGroupItems.swift in Sources */,
+				5B44C9DF2BCAED04008BD1D6 /* SectionHeaderView.swift in Sources */,
 				5BCAB5082BAC73FB002A5B0B /* MainViewModel.swift in Sources */,
 				5BBDB6392BB1CEB700A3E685 /* SendWeldDataView.swift in Sources */,
 			);
