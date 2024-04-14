@@ -10,17 +10,18 @@ import SwiftUI
 
 @main
 struct AppEntryPoint: App {
-    @StateObject var mainViewModel = MainViewModel()
-    @StateObject var multipeerManager = MultipeerConnectivityManager()
+    @StateObject private var mainViewModel = MainViewModel()
 
     var body: some Scene {
         WindowGroup {
+            let weldingInspectorName = mainViewModel.weldingInspector.name // Extract the name here
+
             MainJobView()
                 .environmentObject(mainViewModel)
-                .environmentObject(multipeerManager)
-                
+                .environmentObject(MultipeerConnectivityManager(userName: weldingInspectorName))
         }
     }
 }
+
 
 

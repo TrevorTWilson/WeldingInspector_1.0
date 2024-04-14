@@ -87,7 +87,8 @@ struct ProcedureView: View {
                                     }
                                     Button(action: {
                                         // Send action
-                                        multipeerManager.procedureToSend = procedure
+                                        let preparedProcedure = mainViewModel.prepareProcedure(procedure: procedure)
+                                        multipeerManager.procedureToSend = preparedProcedure
                                         sendWeldProcedureView = true
                                     })  {
                                         Label("Send", systemImage: "square.and.arrow.up")

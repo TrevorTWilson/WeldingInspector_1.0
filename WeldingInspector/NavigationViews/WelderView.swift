@@ -17,14 +17,15 @@ struct WelderView: View {
     var selectedWelders: WeldingInspector.Job.WeldingProcedure.Welder?
 
     @State private var selectedItemForDeletion: WeldingInspector.Job.WeldingProcedure.Welder?
-    @State private var showProfileView = false
-    @State private var addNewWelder = false
-    @State private var editWelder = false
+    @State private var showProfileView: Bool = false
+    @State private var addNewWelder: Bool = false
+    @State private var editWelder: Bool = false
     @State private var selectedWelder: WeldingInspector.Job.WeldingProcedure.Welder? = nil
-    @State private var newInvite = false
-    @State private var newWeld = false
-    @State private var newProcedure = false
-    @State private var newWelder = false
+    @State private var newInvite: Bool = false
+    @State private var newWeld: Bool = false
+    @State private var newProcedure: Bool = false
+    @State private var newWelder: Bool = false
+    @State private var sendWelderView: Bool = false
     
     var body: some View {
         
@@ -83,6 +84,15 @@ struct WelderView: View {
                                     }) {
                                         Label("Delete", systemImage: "trash")
                                     }
+                                    // TODO: code send for welder
+                                    Button(action: {
+                                        // Send action
+                                        let preparedWelder = mainViewModel.prepareWelder(welder: welder)
+                                        multipeerManager.welderToSend = preparedWelder
+                                        sendWelderView = true
+                                    })  {
+                                        Label("Send", systemImage: "square.and.arrow.up")
+                                    }
                                 }
                             }
                             .onDelete { indexSet in
@@ -136,6 +146,10 @@ struct WelderView: View {
                 .sheet(isPresented: $editWelder, content: {
                     // Edit existing welder
                     AddWelderView(mainViewModel: mainViewModel, isPresented: $editWelder, selectedWelder: selectedWelder)
+                })
+                .sheet(isPresented: $sendWelderView, content: {
+                    // Add new job item view
+                    SendWeldDataView(isPresented: $sendWelderView)
                 })
                 .onChange(of: multipeerManager.recievedInvite) {
                     newInvite = multipeerManager.recievedInvite

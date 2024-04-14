@@ -122,8 +122,7 @@ struct SendWeldDataView: View {
                 multipeerManager.weldToSend = nil
                 isPresented = false
             }
-        } else {
-            if let unwrappedWeldingProcedure = multipeerManager.procedureToSend {
+        } else if let unwrappedWeldingProcedure = multipeerManager.procedureToSend {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     for peer in multipeerManager.connectedList {
                         multipeerManager.sendWeldingProceduretoPeer(weldProcedure: unwrappedWeldingProcedure, toPeer: peer)
@@ -131,7 +130,19 @@ struct SendWeldDataView: View {
                     withAnimation {
                         isSendingInvitation = false
                     }
-                    multipeerManager.weldToSend = nil
+                    multipeerManager.procedureToSend = nil
+                    isPresented = false
+                }
+            } else {
+            if let unwrappedWelder = multipeerManager.welderToSend {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    for peer in multipeerManager.connectedList {
+                        multipeerManager.sendWelderToPeer(welder: unwrappedWelder, toPeer: peer)
+                    }
+                    withAnimation {
+                        isSendingInvitation = false
+                    }
+                    multipeerManager.procedureToSend = nil
                     isPresented = false
                 }
             }

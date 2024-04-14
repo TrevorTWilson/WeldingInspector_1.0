@@ -110,15 +110,12 @@ struct MainJobView: View {
                 }
                 .onChange(of: multipeerManager.receivedWeldData) {
                     newWeld = multipeerManager.receivedWeldData
-                    multipeerManager.receivedWeldData = false
                 }
                 .onChange(of: multipeerManager.receivedProcedureData) {
                     newProcedure = multipeerManager.receivedProcedureData
-                    multipeerManager.receivedProcedureData = false
                 }
                 .onChange(of: multipeerManager.receivedWelderData) {
                     newWelder = multipeerManager.receivedWelderData
-                    multipeerManager.receivedWelderData = false
                 }
             }
         }

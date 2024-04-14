@@ -203,12 +203,15 @@ struct ReceiveDataView: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // Simulating a delay for demonstration purposes
                         if isProcedure {
                             print("Saving PROCEDURE to job: \(selectedJob)")
+                            // TODO: add method to save
                         }
                         if isWeld {
                             print("Saving WELD to job: \(selectedJob)---procedure: \(selectedProcedure)---welder: \(selectedWelder)")
+                            // TODO: add method to save
                         }
                         if isWelder {
                             print("Saving WELDER to job: \(selectedJob)---procedure: \(selectedProcedure)")
+                            // TODO: add method to save
                         }
                         
                         showProgressView = false // Hide the ProgressView after saving

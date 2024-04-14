@@ -17,7 +17,7 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
         didSet {
             DispatchQueue.main.async {
                 self.startAdvertising()
-           }
+            }
         }
     }
     
@@ -35,26 +35,31 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
     @Published var receivedProcedureData: Bool = false
     @Published var receivedWelderData: Bool = false
     
+    var userName: String?
+    
     var weldToSend: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers?
     var procedureToSend: WeldingInspector.Job.WeldingProcedure?
+    var welderToSend: WeldingInspector.Job.WeldingProcedure.Welder?
     
     var receivedWeld: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers?
     var receivedProcedure: WeldingInspector.Job.WeldingProcedure?
     var receivedWelder: WeldingInspector.Job.WeldingProcedure.Welder?
-
-    override init() {
-           
-           super.init()
-           
-           peerID = MCPeerID(displayName: UIDevice.current.name)
-           session = MCSession(peer: peerID)
-           advertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: nil, serviceType: serviceType)
-           browser = MCNearbyServiceBrowser(peer: peerID, serviceType: serviceType)
-           
-           session.delegate = self
-           advertiser.delegate = self
-           browser.delegate = self
-       }
+    
+    init(userName: String? = nil) {
+        
+        super.init()
+        
+        let displayname = userName ?? UIDevice.current.name
+        
+        peerID = MCPeerID(displayName: displayname)
+        session = MCSession(peer: peerID)
+        advertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: nil, serviceType: serviceType)
+        browser = MCNearbyServiceBrowser(peer: peerID, serviceType: serviceType)
+        
+        session.delegate = self
+        advertiser.delegate = self
+        browser.delegate = self
+    }
     
     // Start advertising as a host
     func startAdvertising() {
@@ -66,7 +71,7 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
             print("Hidden")
         }
     }
-
+    
     
     // Start browsing for peers
     func startBrowsing() {
@@ -83,7 +88,7 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
     
     // Send data to a peer with a WeldNumber payload
     func sendWeldNumberToPeer(weldNumber: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers, toPeer peer: MCPeerID) {
-
+        
         do {
             let jsonData = try JSONEncoder().encode(weldNumber)
             try session.send(jsonData, toPeers: [peer], with: .reliable)
@@ -93,12 +98,22 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
     }
     
     func sendWeldingProceduretoPeer(weldProcedure: WeldingInspector.Job.WeldingProcedure, toPeer peer: MCPeerID) {
-
+        
         do {
             let jsonData = try JSONEncoder().encode(weldProcedure)
             try session.send(jsonData, toPeers: [peer], with: .reliable)
         } catch {
             print("Error sending WeldNumber data to peer: \(error.localizedDescription)")
+        }
+    }
+    
+    func sendWelderToPeer(welder: WeldingInspector.Job.WeldingProcedure.Welder, toPeer peer: MCPeerID) {
+        
+        do {
+            let jsonData = try JSONEncoder().encode(welder)
+            try session.send(jsonData, toPeers: [peer], with: .reliable)
+        } catch {
+            print("Error sending Welder data to peer: \(error.localizedDescription)")
         }
     }
     
@@ -108,7 +123,7 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
         print("Peer: \(peer.displayName)---Session: \(String(describing: session))---Contect: \(String(describing: context))")
         browser.invitePeer(peer, to: session, withContext: context, timeout: 30)
     }
-
+    
     // Method in MultipeerConnectivityManager to handle sending data after the connection is established
     func sendWeldNumberAfterConnection(weldNumber: WeldingInspector.Job.WeldingProcedure.Welder.WeldNumbers, toPeer peer: MCPeerID) {
         do {
@@ -118,7 +133,7 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
             print("Error sending WeldNumber data to peer: \(error.localizedDescription)")
         }
     }
-
+    
     
     // MARK: - MCSessionDelegate Methods
     
@@ -138,13 +153,13 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
                 self.connectedList.append(peerID)
             }
             print("\(session.connectedPeers)")
-  
+            
         @unknown default:
             // Handle any unknown future states
             print("Unknown state for Peer \(peerID.displayName)")
         }
     }
-
+    
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         let decoder = JSONDecoder()
         
@@ -175,7 +190,7 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
         // Not Used
     }
-
+    
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
         // Not Used
     }
@@ -184,7 +199,7 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
         // Not Used
     }
     // MARK: - MCNearbyServiceAdvertiserDelegate Methods
-
+    
     // Implement MCNearbyServiceAdvertiserDelegate methods here
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         
@@ -196,40 +211,40 @@ class MultipeerConnectivityManager: NSObject, ObservableObject, MCSessionDelegat
             self.recievedInvite = true
         }
     }
-
+    
     // MARK: - MCNearbyServiceBrowserDelegate Methods
     
     // Implement MCNearbyServiceBrowserDelegate methods here
-      func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-          
-          // Update the peerList with the discovered peer
-          DispatchQueue.main.async {
-              // Check if the peerID is not already in the peerList before adding it
-              if !self.peerList.contains(peerID) {
-                  self.peerList.append(peerID)
-                  print("Found peer: \(peerID.displayName)")
-              }
-
-          }
-      }
-
-
+    func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
+        
+        // Update the peerList with the discovered peer
+        DispatchQueue.main.async {
+            // Check if the peerID is not already in the peerList before adding it
+            if !self.peerList.contains(peerID) {
+                self.peerList.append(peerID)
+                print("Found peer: \(peerID.displayName)")
+            }
+            
+        }
+    }
+    
+    
     // Implement MCNearbyServiceBrowserDelegate methods here
-       func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-           // Handle the scenario when a peer is lost or no longer available
-           print("Lost peer: \(peerID.displayName)")
-
-           // Update the peerList by removing the lost peer
-           DispatchQueue.main.async {
-               if let index = self.peerList.firstIndex(of: peerID) {
-                   self.peerList.remove(at: index)
-               }
-               if let index = self.connectedList.firstIndex(of: peerID) {
-                   self.connectedList.remove(at: index)
-               }
-           }
-       }
-
+    func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
+        // Handle the scenario when a peer is lost or no longer available
+        print("Lost peer: \(peerID.displayName)")
+        
+        // Update the peerList by removing the lost peer
+        DispatchQueue.main.async {
+            if let index = self.peerList.firstIndex(of: peerID) {
+                self.peerList.remove(at: index)
+            }
+            if let index = self.connectedList.firstIndex(of: peerID) {
+                self.connectedList.remove(at: index)
+            }
+        }
+    }
+    
 }
 
 
